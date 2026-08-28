@@ -485,3 +485,121 @@ finding.
   priority list from the 2026-08-28 skeleton pass except two items explicitly left open by design:
   (a) real PP1/PP2/Final/Thesis dates, blocked on team/supervisor input; (b) M1–M3 literature-review
   depth, out of Module-4 scope per the user's explicit instruction this session to skip it.
+
+### 2026-08-29 — §4.5 second deepening pass: Páskova resolved (excluded), 7 new verified sources, 2 new thematic strands
+- **Type:** finding + decision
+- **Claim:** Ran a second, deliberately non-duplicative research pass on Module 4's literature
+  review, targeting items the first pass (same date, above) had explicitly left open or excluded.
+  Result: one previously-ambiguous citation is now definitively excluded, and seven new sources
+  were verified and woven into `docs/PROJECT_PROPOSAL.md` §4.5 as two new thematic paragraphs
+  (transfer-learning precedent; uncertainty-quantification precedent) plus an extension to the
+  existing local-carrying-capacity paragraph, with `docs/REFERENCES_BY_COMPONENT.md`'s Module 4
+  table and §4.5.1's synthesis table updated to match.
+- **Resolved — Páskova, Wall, Zejda, Zelenka, "Tourism carrying capacity reconceptualization"**
+  (J. Destination Marketing & Management 21, DOI 10.1016/j.jdmm.2021.100638): previously flagged as
+  date-ambiguous. Now confirmed via CrossRef API `created` timestamp (2021-07-10T18:10:53Z,
+  independently corroborated by a WebSearch snippet stating the same exact date) and Semantic
+  Scholar API (`publicationDate: 2021-09-01`) — **both the online-first date (2021-07-10) and the
+  formal issue date (2021-09-01) are before the 2021-08-28 cutoff.** This is now a **definitive
+  exclusion**, not an open ambiguity — do not re-raise this citation without a genuinely new reason.
+- **New verified sources, each independently resolved:**
+  1. Yao, Xia, Li, Wu, Zuo, "Transfer Learning With Spatial–Temporal Graph Convolutional Network
+     for Traffic Prediction" (Ada-STGCN), IEEE Trans. Intelligent Transportation Systems
+     24(8):8592–8605, 2023-08. DOI 10.1109/TITS.2023.3250424, confirmed via CrossRef API (title,
+     5-author list, journal, volume/issue/pages, date all matched). Combines GCN+GRU with
+     adversarial domain adaptation to transfer a model from a data-rich source road network to a
+     data-scarce target network — direct methodological precedent for Module 4's own plan (§5.5
+     Phase 5) to prototype on METR-LA/PEMS before training on the tiny Horton Plains graph, closing
+     a citation gap that previously had none. Recency: 2023, passes.
+  2. Yu, Zhuang, Jiang, Xu, Ye, Bu, Wang, Wang, "UQGNN: Uncertainty Quantification of Graph Neural
+     Networks for Multivariate Spatiotemporal Prediction", Proc. 33rd ACM SIGSPATIAL 2025 (2025-11-03).
+     DOI 10.1145/3748636.3762709, confirmed via CrossRef API (title, full 8-author list,
+     container-title, date). Jointly predicts expected values and uncertainty across multiple
+     correlated spatiotemporal outputs — strongest single hit for "a point forecast alone is
+     insufficient for a management decision." Recency: 2025, passes.
+  3. Mallick, Macfarlane, Balaprakash, "Uncertainty Quantification for Traffic Forecasting Using
+     Deep-Ensemble-Based Spatiotemporal Graph Neural Networks", IEEE Trans. Intelligent
+     Transportation Systems 25(8):9141–9152, 2024-08. DOI 10.1109/TITS.2024.3381099, confirmed via
+     CrossRef API (title, 3-author list with national-lab affiliations, journal, volume/issue/pages,
+     date). Deep-ensemble Bayesian approach quantifying data- and model-uncertainty in ST-GNN
+     traffic forecasts. Recency: 2024, passes.
+  4. Yang, Huang, Qiu, Cheng, "CONTINA: Confidence Interval for Traffic Demand Prediction with
+     Coverage Guarantee", Transportation Research Part C: Emerging Technologies 184:105502,
+     2025/2026 (arXiv:2504.13961, 2025-04). **DOI 10.1016/j.trc.2025.105502** — confirmed via
+     CrossRef API directly against this DOI after an initial digit-transposed guess
+     (105552) failed to resolve and was discarded before being reported (see note below).
+     Conformal-prediction-based, distribution-free confidence intervals with a formal coverage
+     guarantee — better suited to a low-count, over-dispersed wilderness-trail series than a
+     Gaussian-error assumption would be. Recency: 2025/2026, passes.
+  5. Cui, Wang, Yin, "DG-STMTL: A Novel Graph Convolutional Network for Multi-Task Spatio-Temporal
+     Traffic Forecasting", arXiv:2504.07822 (2025-04-10/11). **Preprint — no confirmed peer-reviewed
+     venue found (WebSearch indicates "preprint submitted to Knowledge-Based Systems"); flagged
+     explicitly as unconfirmed peer review, not presented as reviewed.** Verified via direct arXiv
+     abstract-page fetch (title/authors/abstract/dates/classification confirmed). Jointly forecasts
+     multiple correlated traffic quantities from one shared dynamic-graph backbone via task-specific
+     gating — structurally analogous to a forecast-plus-downstream-cascade design. Recency: 2025,
+     passes (with the preprint caveat).
+  6. Kuniyal, Maiti, Kanwar, Dhyani, Nand, "Carrying capacity and strategic planning for sustainable
+     tourism practices in the Char Dham from the Western Himalaya, India", Scientific Reports
+     15:36340, 2025-10-17. DOI 10.1038/s41598-025-20166-8, confirmed via CrossRef API (title,
+     5-author list, container-title, volume, article number, both online and issued dates
+     independently matching 2025-10-17 — flagged explicitly since date transcription is exactly
+     where past errors occurred in this project). South Asian Himalayan mountain-trekking-circuit
+     carrying-capacity study (visitor growth ~1M/yr early-2000s → 5M in 2023), using MCDA/AHP with
+     21 indicators — **cited for problem-framing (South Asian mountain-trail crowding is a live,
+     high-stakes problem beyond Sri Lanka), explicitly NOT as a Cifuentes-cascade methodological
+     precedent, since it uses a different method.** Recency: 2025, passes.
+  7. DuPuy, Galaitsi, Linkov, "Carrying capacity in human-environment interactions: a systematic
+     review", Integrated Environmental Assessment and Management 21(3):526–539, online 2025-02-26 /
+     print 2025-05-01. DOI 10.1093/inteam/vjaf021, confirmed via CrossRef API (title, 3-author list,
+     journal, volume/issue/pages, both dates) after an initial guessed DOI (10.1002/ieam.4045)
+     resolved to an unrelated 2018 wastewater-treatment paper and was discarded before being
+     reported (see note below). General (non-region-specific) 2025 systematic review confirming the
+     Cifuentes cascade remains a recognized, actively-cited, current-best-practice carrying-capacity
+     tool — supports the continued defensibility of citing Cifuentes 1992 as this proposal's
+     foundational method. Recency: 2025, passes.
+- **Verification-discipline note (both DOI-guessing near-misses caught before reporting):** during
+  this pass, two DOIs were initially guessed from WebSearch paraphrases rather than directly
+  confirmed (10.1016/j.trc.2025.105552 for CONTINA; 10.1002/ieam.4045 for DuPuy et al.) — both
+  failed independent CrossRef verification and were discarded; the correct DOIs (105502 and
+  vjaf021 respectively) were then found via the arXiv journal-ref field and further search, and
+  independently confirmed via CrossRef before being reported here. Logged explicitly per rule #3's
+  verification-over-plausibility standard and as a positive example that the discipline is working.
+- **Item #7 (stronger verification for four sources previously confirmed only via CrossRef API)** —
+  Uremović et al., Acciai et al., Gayathri et al., and Zhang et al. (all already logged in the first
+  pass) now additionally have independent WebSearch-returned snippets sourced from their own
+  publisher/institutional pages, corroborating author names and abstract-level content beyond what
+  CrossRef metadata carries. Gayathri et al. has the strongest confirmation — a first-party listing
+  on the authors' own institutional research-centre page (VIT Chennai Centre for Cyber Physical
+  Systems). **None of the four received a full first-party visual page read** — direct fetch to
+  ScienceDirect/ACM was still blocked (HTTP 403) on all four; this remains an open item for a human
+  with institutional access, same as the first pass's flag.
+- **Searched but found nothing new (do not re-search these exact angles without a new reason):**
+  - Wilderness/trail/rural-recreation-domain GNN with an explicitly small node count — searched via
+    five new angles (national-park visitor-flow networks, protected-area trail-network graphs,
+    rural-road-network forecasting, ski-resort/campsite occupancy, recreational-site-network graphs)
+    and confirmed empty again. The closest hit, a Fuzhou National Forest Park visitor-flow paper
+    (Wang, Xue, Wang, *SAGE Open* 15(3), 2025, DOI 10.1177/21582440251358303, verified via doi.org),
+    is a single-series time-series model with no graph structure at all — not recommended as a
+    stronger citation than what's already logged (Ryu et al.). This is now confirmed absent across
+    two independent research passes with different query strategies — treat as a real literature
+    gap, not an unresearched one.
+  - Sri Lanka-specific (Yala/Sinharaja/Wilpattu) post-2021-08-28 carrying-capacity/crowding study —
+    none found; only pre-2021 visitor-satisfaction literature and non-peer-reviewed commentary.
+  - Nepal/Annapurna/Everest post-2021-08-28 peer-reviewed carrying-capacity study — none found
+    (only older literature and tourism-board news content); Char Dham (finding #6, India) is the
+    one genuinely new South Asian mountain-region hit.
+  - A phrase resembling "BiTransGCN" for visitor flows surfaced once in a WebSearch summary with no
+    resolvable title/author/venue/year — could not verify existence; not reported as a finding.
+- **Justification:** All seven new sources are independently verified (CrossRef API and/or direct
+  page fetch, with two caught-and-corrected DOI-guessing near-misses demonstrating the verification
+  step actually functioned), on-topic, and pass the 5-year recency rule (DG-STMTL flagged as an
+  unconfirmed preprint rather than presented as peer-reviewed). Satisfies rule #3 and rule #4.
+- **Status:** active. Open follow-up carried over from the first pass, now applying to the same
+  four sources plus none newly added: a human with institutional ScienceDirect/ACM DL access should
+  do a final visual confirmation of Uremović et al., Acciai et al., Gayathri et al., and Zhang et
+  al. before final submission if maximal rigor is wanted. `docs/PROJECT_PROPOSAL.md` §4.5 and
+  §4.5.1 and `docs/REFERENCES_BY_COMPONENT.md`'s Module 4 table have been updated to reflect all of
+  the above; the uncertainty-quantification strand is explicitly stated in the proposal text as
+  future-work-adjacent (not part of Module 4's current MVP scope) to avoid overstating what's
+  already planned.

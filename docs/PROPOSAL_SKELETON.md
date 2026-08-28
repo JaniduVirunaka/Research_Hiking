@@ -83,20 +83,23 @@ work-package-style precedent found in this session's research.
   rather than summary-then-critique-then-gap; a light pass adding one critique sentence per
   subsection would strengthen this without a rewrite.
 - **2.6 Word count check** — `docs/LEC_NOTES_DIGEST.md` benchmarks a full literature review at
-  **6,000–12,000 words**. Current §4 (all five subsections) is well under that overall — this
-  remains the single biggest structural gap in the whole document (M1–M3 subsections are still
-  short). **[M4 — your section] DONE (2026-08-29):** §4.5 has been expanded into five full prose
-  paragraphs (ST-GNN architecture precedent → tourism-flow-specific precedent → small/sparse-graph
-  precedent → synthetic-target precedent → local carrying-capacity grounding), each ending in an
-  explicit critique sentence, drawing on 9 newly-verified sources (see
-  `docs/SOURCES_LOG.md` 2026-08-29 entry and `docs/REFERENCES_BY_COMPONENT.md` Module 4 table).
-  This also closed two standing gaps: the previously-unsourced "Limits of Acceptable Change"
-  framing now has a real foundational citation (Stankey et al. 1985) plus a modern application
-  (Dragovich & Bajpai 2022), and the dead RG 392533688 citation has been replaced with a verified
-  Sri Lanka-specific source (Hewapathirana 2023/2025). §5.5 was also updated to weave in the two
-  previously-logged-but-unused precedent papers (Gupta et al. 2025, Zhu et al. 2021) plus the new
-  Zhang et al. 2025 and Gayathri et al. 2025 findings. M1–M3 lit-review subsections have not been
-  touched — they remain in scope for whoever owns that pass, per "context, not your section."
+  **6,000–12,000 words**. Current §4 overall is still under that (M1–M3 subsections remain short —
+  explicitly out of scope for this pass, per the user's instruction to skip them). **[M4 — your
+  section] DONE, two passes (2026-08-29):** §4.5 has grown from ~1,195 to **~2,760 words**
+  (including the §4.5.1 synthesis table) across two research passes, now seven full prose
+  paragraphs (ST-GNN architecture → tourism-flow → small/sparse-graph → synthetic-target → local
+  carrying-capacity/LAC grounding → transfer-learning precedent → uncertainty-quantification
+  precedent), each ending in an explicit critique sentence, drawing on 16 newly-verified sources
+  across both passes (see the two 2026-08-29 `docs/SOURCES_LOG.md` entries and
+  `docs/REFERENCES_BY_COMPONENT.md`'s Module 4 table, now 27 rows). Standing gaps closed: the
+  "Limits of Acceptable Change" framing now has both a foundational citation (Stankey et al. 1985)
+  and a modern application (Dragovich & Bajpai 2022); the dead RG 392533688 citation is replaced
+  (Hewapathirana 2023/2025); the previously ambiguous Páskova et al. citation is now definitively
+  excluded (confirmed pre-cutoff on both candidate dates); the METR-LA/PEMS-to-Horton-Plains
+  transfer-learning strategy now has a direct citation (Yao et al. 2023, Ada-STGCN) where
+  previously it had none; and a South Asian (Char Dham, Himalaya) mountain-trekking
+  carrying-capacity precedent now supplements the Sri Lanka-only framing. M1–M3 lit-review
+  subsections remain untouched by design.
 - **2.7 Synthesis / taxonomy** — **DONE (2026-08-29).** Added §4.5.1 to
   `docs/PROJECT_PROPOSAL.md`: a 17-row comparison table of every ST-GNN/flow-forecasting precedent
   from §4.5 (domain, graph size, real-vs-synthetic ground truth, whether it tests a non-graph

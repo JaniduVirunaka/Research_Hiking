@@ -103,6 +103,11 @@ module's scope.
    real gap or limitation with false confidence, since the student — not Claude — has to defend
    it in a viva.
 
+6. **No emojis in any generated deliverable.** Documents, HTML compilations, presentation slides,
+   status docs, and any other submission artifact must use minimal, plain styling — no emoji
+   glyphs anywhere in the content. This applies regardless of formatting instructions given for a
+   specific task; treat it as a standing default for this project's outputs.
+
 ## Working conventions
 
 - This is a Windows machine; use the Bash tool's POSIX paths or PowerShell as appropriate.
