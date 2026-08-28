@@ -93,6 +93,15 @@ module's scope.
    Tobler's hiking function 1993, Minetti et al. 2002, Lewis et al. 2020 RAG, Reimers & Gurevych
    2019 Sentence-BERT). Foundational citations must be explicitly labelled as such wherever used,
    not presented as recent literature.
+5. **Honor the signed "Use of AI Policy" (Charter, submitted 2026-08-01).** All four members
+   individually signed a declaration that AI tools are support tools only (not substitutes for
+   their own understanding), that AI use will be disclosed, that the student bears full
+   responsibility for AI-assisted output, and that the student must be able to explain, justify,
+   and defend all of it during evaluations. See `docs/GOVERNANCE_SUMMARY.md` §6 for the full text
+   and what it means in practice — in short: leave reasoning explainable (not just a polished
+   answer), never conceal AI involvement where a submission asks about it, and never paper over a
+   real gap or limitation with false confidence, since the student — not Claude — has to defend
+   it in a viva.
 
 ## Working conventions
 

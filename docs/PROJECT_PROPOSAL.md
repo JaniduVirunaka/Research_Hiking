@@ -170,6 +170,77 @@ ST-GNNs are state-of-the-art for flow/bottleneck forecasting: Spatio-Temporal Pi
 
 ---
 
+### 5.5 Module 4 — Extended Methodology & Plan of Work
+
+*(This subsection expands Module 4 beyond the TAF word limit for the full Proposal document. Owner: IT23343948 — Weerasekara J.V.)*
+
+**Why a Spatio-Temporal GNN, and why that choice is defensible on a 25–40 node graph.**
+The literature review (§4.5) establishes ST-GNNs as the state-of-the-art for flow/bottleneck
+forecasting on graph-structured networks (AAAI 2024 Spatio-Temporal Pivotal GNN; PMC11723455
+adaptive attention; Jia & Chen 2025 GCN-LSTM tourism-flow networks), but every one of those
+precedents operates on data-rich, live-connectivity urban or regional networks with hundreds of
+nodes and continuous telemetry — none has been applied to a small, offline, wilderness trail
+graph. `docs/TECHNICAL_AUDIT.md` flags this honestly as a real risk, not just a novelty claim:
+GNNs "earn their keep" on large networks, and on a small loop like Horton Plains World's End
+(~25–40 nodes), a simpler per-node model could plausibly match a GCN's performance. Two design
+decisions respond directly to that risk rather than assuming the GNN wins by default:
+1. **Mandatory baseline comparison.** Per-node LSTM (no graph structure), historical-average, and
+   ARIMA baselines are trained and evaluated on the identical synthetic-occupancy series and
+   identical spatial-block CV splits as the ST-GNN. The GNN is only reported as adding value if it
+   beats these baselines by a statistically significant margin (paired t-test, p < 0.05, per the
+   evaluation protocol in §9) — not by construction.
+2. **The propagation argument, stated explicitly as the falsifiable hypothesis being tested:**
+   because Horton Plains is a loop with a single controlled entry point, congestion at one node
+   should be *predictable from* upstream occupancy and travel time to that node (Tobler's hiking
+   function gives the expected lag). A graph model can encode that propagation structurally; a
+   per-node LSTM cannot see other nodes at all. If the baselines match the GNN anyway, that is
+   itself a valid, reportable finding — it would mean the loop's small size makes graph structure
+   unnecessary at this scale, which is worth stating plainly rather than obscuring.
+
+**Why the synthetic foot-traffic target is not purely circular, and what breaks that circularity.**
+`docs/TECHNICAL_AUDIT.md` is direct about this: training a model to reproduce a target built from
+the same seasonality/permit-cap rules used to generate it risks the model just learning the
+simulator, not reality. Three things are done specifically to reduce (not eliminate) that risk,
+and all three must be reported as partial mitigations, not a solved problem:
+- The **seasonality and permit-cap inputs** (SLTDA monthly multipliers, DWC daily caps) are
+  independently sourced, real, published figures — not fitted parameters — so the simulator's
+  macro-shape is externally grounded, even though its micro-shape (the movement model) is not.
+- **Manual/clicker calibration counts** at the entrance and the World's End / Baker's Falls
+  junctions provide a small held-out real signal the synthetic series must be checked against —
+  the model's per-segment predictions should be validated against these counts specifically, not
+  just against the synthetic training series, and any divergence must be reported rather than
+  smoothed over.
+- **Weather-driven variation is exogenous, not self-generated** — ERA5/Open-Meteo rainfall and the
+  DEM-derived Topographic Wetness Index enter the model as real, independently measured covariates
+  that were not used to construct the foot-traffic target, so at minimum the model's response to
+  weather is being tested against real data, even where its baseline occupancy level is not.
+
+**ECC is reported as a derived management output, not a validated prediction.** Because no ECC
+ground truth exists anywhere for these trails, Module 4's evaluation claims are scoped to what is
+actually checkable: occupancy/bottleneck forecasting accuracy (RMSE/MAE under spatial block CV)
+against the calibrated series and the manual counts. The Cifuentes PCC→RCC→ECC cascade is then
+applied deterministically on top of the forecast to produce the dynamic capacity number — this
+conversion step is a formula application, not a model output, and is presented as such.
+
+**Plan of work (indicative, module-level; align with the team's shared TAF/Proposal timeline
+once the Charter sets exact dates).**
+
+| Phase | Work | Key output |
+|---|---|---|
+| 1 — Graph & feature build | Extract OSM graph (Overpass query, Horton Plains World's End loop), build DEM-derived slope/TWI features, pull ERA5/Open-Meteo weather history | Static graph + node/edge feature tables |
+| 2 — Synthetic target construction | Implement the permit-cap × SLTDA-seasonality × Tobler-movement-model pipeline; generate ≥2 years of hourly synthetic occupancy | Calibrated synthetic occupancy series |
+| 3 — Field calibration | Collect a few days of manual/clicker counts at entrance + World's End/Baker's Falls junctions | Real held-out calibration sample |
+| 4 — Baseline models | Implement and tune historical-average, ARIMA, per-node LSTM on identical CV splits | Baseline performance table |
+| 5 — ST-GNN development | Implement GCN + LSTM/Transformer with adaptive spatio-temporal attention; hyperparameter tuning | Trained ST-GNN model |
+| 6 — Evaluation | Spatial block CV, baseline comparison with significance testing, calibration-count validation, feature ablation (weather/terrain/calendar) | Evaluation chapter results |
+| 7 — ECC cascade & outputs | Apply Cifuentes cascade to forecasts; produce dynamic ticketing-threshold recommendation format | Final deliverable + dashboard-ready output |
+
+**Stretch, time permitting:** hazard-routing ensemble (XGBoost/LightGBM → MLP) for flash-flood/
+landslide probability at each node; a second trail graph (e.g. a Pekoe Trail segment) to test
+generalization beyond the single Horton Plains loop.
+
+---
+
 ## 6. How the Modules Relate (loose coupling — no hard dependency)
 
 The four modules are **peers**, each a complete sub-project with its own data, model, metrics and output. They are *not* a pipeline — **none requires another to function.** A shared dashboard/app can simply *display* all four side by side:

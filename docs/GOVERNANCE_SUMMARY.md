@@ -69,7 +69,7 @@ Per the "Summary of Specialization RP Checklists" table (IT column):
 | Checkpoint | Deliverable | When | Where |
 |---|---|---|---|
 | TAF | Topic Assessment Form | — | (already accepted, v5) |
-| Charter | Project charter | — | — |
+| Charter | Project charter + **Use of AI Policy: Student Declaration and Agreement** | 2026-08-01 | (already submitted — see `governance/Project Charter.pdf`; signed by all 4 members + Dr. Prasanna Sumathipala) |
 | Proposal | + Ethics Form (common to all specializations) | — | — |
 | PP1 (50%) | Status Doc 1 = **Git Repository** (with README: overview, architecture diagram, dependencies; full commit/branch/merge history) | PP1 | OneDrive "CheckList1" folder, shareable git link |
 | PP2 (90%) | Status Doc 2 = **Evidence of using a PM tool** (MS Planner export) | PP2 | OneDrive "CheckList2" folder |
@@ -93,7 +93,41 @@ Claude prepares and stages.
   at data-collection onboarding) is the documented mitigation strategy — see
   `docs/PROJECT_PROPOSAL.md` §8.
 
-## 6. What is NOT in these two governance PDFs
+## 6. Use of AI Policy — binding on every session in this repo
+
+**Source:** `governance/Project Charter.pdf` — "Use of AI Policy: Student Declaration and
+Agreement," submitted with the Project Charter and signed by all four members and the supervisor
+(Dr. Prasanna Sumathipala) on 2026-08-01.
+
+Each member individually declared, in writing:
+
+1. They have read and understood the AI Usage Policy for the Research Project (IT4010).
+2. **AI tools are to be used only as support tools, not as substitutes for their own
+   understanding and work.**
+3. AI tools will be used responsibly, ethically, and transparently.
+4. **Any use of AI tools will be clearly disclosed.**
+5. **The student bears full responsibility and accountability for any content, code, model, or
+   output generated using AI tools** — Claude's output is not a shield from that accountability.
+6. **The student confirms they will be able to explain, justify, and defend all aspects of their
+   work during evaluations** — including anything Claude produced or helped produce.
+7. Failure to comply may result in **academic penalties**.
+
+**What this means in practice for Claude Code working in this repo:**
+- Never present AI-authored content as if it were independently produced by the student without
+  the student's own understanding — the point of every agent here is to *support* Weerasekara J.V.
+  (Module 4) and the team, not to generate finished work the owning member can't explain.
+- When producing a document, code module, or claim, favor leaving clear, explainable reasoning
+  (not just a polished final answer) so the responsible student can walk through and defend it —
+  this is *why* `docs/SOURCES_LOG.md` requires a justification for every finding, not just a
+  citation, and it's the same reason code comments should explain non-obvious WHY, not WHAT.
+- AI involvement in a deliverable should be disclosed where the submission process asks for it
+  (e.g. if a status report or reflective statement asks about tools used) — do not conceal it.
+- Do not fabricate, embellish, or "smooth over" gaps in the student's actual understanding — if
+  something in the docs is unverified or a limitation is real (see `docs/TECHNICAL_AUDIT.md`),
+  say so plainly rather than presenting a falsely confident final product, since the student is
+  the one who must defend it in a viva.
+
+## 7. What is NOT in these two governance PDFs
 
 The 525-page `Combined Lec Notes.pdf` (now digested at `docs/LEC_NOTES_DIGEST.md`) is the deeper
 teaching material — literature review method, citation style, statistical/evaluation methodology,

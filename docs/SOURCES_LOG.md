@@ -126,6 +126,42 @@ finding.
   being used as a national-arrivals covariate reference for Module 4) and replace it with a
   verified alternative.
 
+### 2026-08-28 — Project Charter already submitted; binding AI-usage policy discovered
+- **Type:** finding
+- **Claim:** The Project Charter checkpoint (previously assumed upcoming/undated) was actually
+  already submitted on **2026-08-01**, alongside a signed "Use of AI Policy: Student Declaration
+  and Agreement." All four members (Kankanige S.S as group leader, Weerasekara J.V, Ahamed M.N.I,
+  Ahamed M.M) and the supervisor (Dr. Prasanna Sumathipala) signed it. The policy requires: AI as
+  a support tool only, transparent disclosure of AI use, full student accountability for
+  AI-assisted output, and that the student must be able to explain/justify/defend that work in
+  evaluations.
+- **Source:** `governance/Project Charter.pdf`, all 3 pages — dates and signatures verified
+  directly from the document (all four member signatures dated 01/08/2026; supervisor signature
+  dated 2026/08/1, read as 01/08/2026 given the surrounding declarations).
+- **Justification:** Primary-source document, directly read and transcribed, not inferred.
+- **Status:** active. Updated `docs/GOVERNANCE_SUMMARY.md` (new §6, and the Charter row in the
+  IT-specialization checklist table) and `CLAUDE.md` (new rule #5) to reflect both the Charter's
+  completed status and the binding AI-usage terms. This supersedes the assumption made earlier in
+  this session that the Charter was an upcoming, undated deliverable to prep for — it is done.
+
+### 2026-08-28 — Added Module 4 extended methodology & plan of work to the Proposal
+- **Type:** decision
+- **Claim:** Added `docs/PROJECT_PROPOSAL.md` §5.5, expanding Module 4's methodology
+  justification (why ST-GNN vs. baselines is a testable hypothesis, not an assumed win; why the
+  synthetic foot-traffic target is partially but not fully circular; ECC framed as a derived
+  output, not a validated prediction) and a 7-phase plan of work, ahead of preparing the full
+  Proposal + Ethics Form submission (the next deliverable after the already-accepted TAF v5).
+- **Source:** synthesized directly from already-verified project material — no new external
+  claims were introduced. Architecture/risk reasoning drawn from `docs/TECHNICAL_AUDIT.md`
+  "C4 — ST-GNN dynamic carrying capacity" section; citations reused from
+  `docs/REFERENCES_BY_COMPONENT.md` Module 4 table (AAAI 2024, PMC11723455, Jia & Chen 2025 —
+  all previously verified); evaluation protocol (paired t-test, p<0.05, spatial block CV) reused
+  from `docs/PROJECT_PROPOSAL.md` §9, which was already in the document.
+- **Justification:** No new factual/citation claims were added, only methodological argument
+  built from already-sourced material — satisfies rule #3 without needing new verification.
+- **Status:** active. Plan-of-work phase dates are explicitly left unscheduled pending the
+  Charter, which the team has not yet defined — do not backfill dates without the team's input.
+
 ### 2026-08-28 — Raw Gemini Deep Research chat transcripts and FACTS_COMPILED.md removed
 - **Type:** decision
 - **Claim:** The three raw Gemini chat exports (`research/Gemini Chats/*.txt`, the origin
