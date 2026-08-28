@@ -126,6 +126,37 @@ finding.
   being used as a national-arrivals covariate reference for Module 4) and replace it with a
   verified alternative.
 
+### 2026-08-28 — Proposal skeleton built; structure validated against external precedent
+- **Type:** decision
+- **Claim:** Built `docs/PROPOSAL_SKELETON.md`, a section-by-section gap analysis for the Research
+  Proposal deliverable (the checkpoint after the accepted TAF v5 and submitted Charter). The
+  skeleton confirms the existing `docs/PROJECT_PROPOSAL.md` structure (shared front matter +
+  problem/objectives, one literature-review chapter with per-module subsections, one methodology
+  chapter with per-module subsections, shared plan-of-work/ethics/conclusion) already matches real
+  precedent for multi-component proposals, rather than needing a restructure — the work
+  remaining is mostly gap-filling (front matter, word-count expansion, weaving in new citations),
+  not new architecture.
+- **Source:** structural precedent researched this session — (1) Horizon Europe work-package
+  proposal convention (enspire.science grant-writing guide, grey literature, cited for structural
+  convention only, not a technical/scientific claim); (2) University of Iowa Human Subjects
+  Office "Umbrella Project Educational Tool" (existence and structural shape confirmed via search
+  snippet; full-text extraction failed — PDF returned unreadable binary to the fetch tool — so
+  treat the structural claim as adequately but not exhaustively verified); (3) a deliberate
+  negative/contrast example, Silvestri et al. 2024 (Sensors 24(7):2376, DOI 10.3390/s24072376),
+  which fuses multiple subsystems into one shared-architecture narrative with no per-subsystem
+  methodology — used to illustrate the failure mode this project must avoid (flattening Module
+  4's own methodology into a shared "system" description), not as a source to emulate.
+- **Justification:** Two independent institutional contexts (grant-writing, human-subjects
+  research governance) converging on the same "shared front + full per-component deep-dive"
+  shape is reasonable evidence the pattern is generic rather than an artifact of one body's house
+  style — sufficient grounding for a structural (not factual/scientific) claim.
+- **Status:** active. Four new Module 4 literature sources were also found and logged in this same
+  research pass (Gupta et al. 2025 BuildSys, Zhu et al. 2021 Expert Systems with Applications, Du
+  et al. 2025 Applied Intelligence, Dong et al. 2025 JABES) — see `docs/REFERENCES_BY_COMPONENT.md`
+  Module 4 table for full entries; two directly strengthen the §5.5 "why the GNN isn't circular
+  and must beat baselines" argument and are flagged in `docs/PROPOSAL_SKELETON.md` §3.5 as not yet
+  woven into that section's prose.
+
 ### 2026-08-28 — Project Charter already submitted; binding AI-usage policy discovered
 - **Type:** finding
 - **Claim:** The Project Charter checkpoint (previously assumed upcoming/undated) was actually
@@ -185,3 +216,76 @@ finding.
   actual citable LAC source (the concept originates from Stankey et al., US Forest Service
   recreation-management literature; confirm a real, ideally <5-year, application to trail/
   ecotourism carrying capacity before citing).
+
+### 2026-08-28 — Proposal-skeleton research: multi-module umbrella structure precedent + 3 new Module 4 sources
+- **Type:** finding
+- **Claim:** Researched precedent for how a single proposal document should structure 4
+  loosely-coupled sub-modules (for the upcoming skeleton), and found three genuinely new, verified,
+  recent Module 4 sources relevant to justifying the "small-graph GNN vs. baseline" and
+  "synthetic-target validation" methodology presentation. Full detail below; skeleton reasoning
+  reported separately to the requesting agent, not duplicated here.
+- **Source(s), each independently resolved:**
+  1. Horizon Europe work-package guidance (enspire.science, "Work Packages in Horizon Europe: How
+     to do it right", accessed 2026-08-28, https://enspire.science/work-packages-in-horizon-europe-how-to-do-it-right/)
+     — grey-lit grant-writing guide, not an academic paper; used only as structural precedent, not
+     a factual/technical claim.
+  2. University of Iowa HSO "Umbrella Project Educational Tool" (PDF,
+     https://hso.research.uiowa.edu/sites/hso.research.uiowa.edu/files/2024-04/Umbrella%20Project%20Educational%20Tool.v4.10.27.2022.pdf)
+     — official university research-governance document; confirmed to exist via search snippet
+     (full PDF text extraction failed — binary/compressed stream, not re-attempted since the
+     search snippet already gave the needed structural fact and this is grey-lit precedent, not a
+     load-bearing technical citation).
+  3. Silvestri et al., "An Urban Intelligence Architecture for Heterogeneous Data and Application
+     Integration, Deployment and Orchestration", Sensors (Basel) 24(7):2376, 2024. DOI
+     10.3390/s24072376, resolved directly via https://pmc.ncbi.nlm.nih.gov/articles/PMC11014012/
+     (title/authors/venue/year confirmed on the page itself). Used as a *contrast* precedent — a
+     real multi-subsystem systems paper that uses a single layered shared-architecture narrative
+     WITHOUT per-subsystem deep-dive methodology sections (i.e., the pattern this proposal should
+     NOT copy, since Module 4 needs its own full methodology).
+  4. Gupta, Raina, Chen, Chen, Danilov, Eckhardt, Bernard, Nahrstedt, "No One-Model-Fits-All:
+     Uncovering Spatio-Temporal Forecasting Trade-offs with Graph Neural Networks and Foundation
+     Models" (arXiv preprint title: "Evaluating Spatio-Temporal Forecasting Trade-offs Between
+     Graph Neural Networks and Foundation Models"), arXiv:2511.05179 (submitted 2025-11-07,
+     v2 2025-11-30), peer-reviewed and published at the 12th ACM International Conference on
+     Systems for Energy-Efficient Buildings, Cities, and Transportation (BuildSys '25), Golden CO,
+     Nov 2025. DOI 10.1145/3736425.3771958, resolved via doi.org redirect to
+     https://dl.acm.org/doi/10.1145/3736425.3771958 and cross-checked via search snippet of the
+     ACM proceedings TOC. Compares STGNNs against classical (VAR), neural (GRU, Transformer), and
+     time-series foundation models on sparse/small IoT sensor-network graphs (not large urban
+     traffic networks) — directly precedent for Module 4's "GNN must earn its keep vs. baselines
+     on a small graph" methodology framing.
+  5. Zhu, Zhang, Li, Zhou, Dai, Hu, "Spatiotemporal multi-graph convolutional networks with
+     synthetic data for traffic volume forecasting", Expert Systems with Applications 187:115992,
+     2022 (online-first/indexed October 2021). DOI 10.1016/j.eswa.2021.115992, resolved via
+     CrossRef API (https://api.crossref.org/works/10.1016/j.eswa.2021.115992) confirming exact
+     title, authors, journal, and October 2021 online date. Precedent for a peer-reviewed GNN
+     forecasting paper that explicitly uses synthetic training data as part of its methodology
+     (analogous to Module 4's synthetic foot-traffic target), i.e. shows synthetic-data-assisted
+     GNN training/validation is an accepted, published pattern, not a novel weakness unique to
+     this project.
+  6. Du, Liu, Li, "Pedestrian flow prediction using a spatiotemporal multi-head attention graph
+     convolutional network integrated with knowledge graph", Applied Intelligence 55(13):896, 2025
+     (online 2025-07-29, print Aug 2025). DOI 10.1007/s10489-025-06793-8, resolved via CrossRef API.
+     Domain-relevant (pedestrian/foot-traffic flow, not vehicle traffic) recent GNN precedent for
+     Module 4's literature review.
+  7. Dong, Chu, Zhang, Ghaderi, Yang, "Pedestrian Volume Prediction Using a Diffusion Convolutional
+     Gated Recurrent Unit Model with Dynamic Time Warping", Journal of Agricultural, Biological and
+     Environmental Statistics 17(3), 2025 (online 2025-06-09). DOI 10.1007/s13253-025-00696-4,
+     resolved via CrossRef API. Also domain-relevant (pedestrian volume, not vehicle traffic),
+     recent, GNN/graph-adjacent precedent for Module 4.
+- **Justification:** Items 4–7 are new, independently resolved (DOI/CrossRef/ACM-proceedings
+  cross-checks, not assumed from titles), on-topic for Module 4, and pass the 5-year recency rule
+  (all published/online-dated after 2021-08-28). Items 1–3 are structural/precedent sources for the
+  proposal-skeleton pattern question, not technical claims, logged for traceability per rule #3
+  even though they carry a lower evidentiary bar than a scientific citation.
+- **Recency check:** arXiv:2511.05179 / ACM BuildSys'25 — Nov 2025, well within 5 years. Zhu et al.
+  2021/2022 — online-dated Oct 2021, which is *after* the 2021-08-28 cutoff, so it qualifies as
+  current (not a foundational exception) — flagged explicitly here because the print year (2022 in
+  vol. 187) could otherwise look ambiguous. Du et al. 2025 and Dong et al. 2025 — both well within
+  5 years. Silvestri et al. 2024 — within 5 years (used as structural/contrast precedent, not a
+  technical claim, so recency is not load-bearing here anyway).
+- **Status:** active. A candidate MDPI paper ("Pedestrian Flow Prediction in Open Public Places
+  Using Graph Convolutional Network", ISPRS Int. J. Geo-Inf. 10(7):455) was found but **excluded**
+  — confirmed published 2021, vol 10 issue 7 (July), which is before the 2021-08-28 cutoff with no
+  later online-first date found; do not cite it without re-confirming an online-first date on or
+  after 2021-08-28.
