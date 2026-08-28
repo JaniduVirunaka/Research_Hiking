@@ -83,14 +83,20 @@ work-package-style precedent found in this session's research.
   rather than summary-then-critique-then-gap; a light pass adding one critique sentence per
   subsection would strengthen this without a rewrite.
 - **2.6 Word count check** — `docs/LEC_NOTES_DIGEST.md` benchmarks a full literature review at
-  **6,000–12,000 words**. Current §4 (all five subsections) is well under that — this is the
-  single biggest structural gap in the whole document. **[M4 — your section]** §4.5 (Module 4 lit
-  review) is the thinnest of the four at present relative to how much verified literature already
-  exists for it (11 rows in `docs/REFERENCES_BY_COMPONENT.md` Module 4 table, four more just
-  added). Expanding §4.5 into full prose paragraphs per theme (ST-GNN architecture precedent →
-  tourism-flow-specific precedent → small/sparse-graph precedent → synthetic-target precedent →
-  local carrying-capacity grounding) would both raise the word count and directly support §5.5's
-  methodology argument.
+  **6,000–12,000 words**. Current §4 (all five subsections) is well under that overall — this
+  remains the single biggest structural gap in the whole document (M1–M3 subsections are still
+  short). **[M4 — your section] DONE (2026-08-29):** §4.5 has been expanded into five full prose
+  paragraphs (ST-GNN architecture precedent → tourism-flow-specific precedent → small/sparse-graph
+  precedent → synthetic-target precedent → local carrying-capacity grounding), each ending in an
+  explicit critique sentence, drawing on 9 newly-verified sources (see
+  `docs/SOURCES_LOG.md` 2026-08-29 entry and `docs/REFERENCES_BY_COMPONENT.md` Module 4 table).
+  This also closed two standing gaps: the previously-unsourced "Limits of Acceptable Change"
+  framing now has a real foundational citation (Stankey et al. 1985) plus a modern application
+  (Dragovich & Bajpai 2022), and the dead RG 392533688 citation has been replaced with a verified
+  Sri Lanka-specific source (Hewapathirana 2023/2025). §5.5 was also updated to weave in the two
+  previously-logged-but-unused precedent papers (Gupta et al. 2025, Zhu et al. 2021) plus the new
+  Zhang et al. 2025 and Gayathri et al. 2025 findings. M1–M3 lit-review subsections have not been
+  touched — they remain in scope for whoever owns that pass, per "context, not your section."
 - **2.7 Synthesis / taxonomy** — **Missing.** `docs/LEC_NOTES_DIGEST.md` recommends a tabulated
   comparison as a synthesis tool. **[M4 — your section, optional but strong]** A comparison table
   of ST-GNN/GNN-forecasting precedents (architecture, graph size, data type real-vs-synthetic,
@@ -116,13 +122,14 @@ explicitly validated (not four separate chapters, not one fused description). Ma
 - **3.3 Module 2 Methodology** — existing §5 Module 2. Ready (context only).
 - **3.4 Module 3 Methodology** — existing §5 Module 3. Ready (context only).
 - **3.5 Module 4 Methodology** — **[M4 — your section]** existing §5 Module 4 + §5.5 (Extended
-  Methodology & Plan of Work, added this session). This is already the most fully developed
-  methodology subsection in the document: data/shape/size, architecture, MVP/stretch/out-of-scope,
-  the "why GNN, why not circular" argument, and a 7-phase plan of work. **Remaining gap:** the
-  newly-found Gupta et al. 2025 ("No One-Model-Fits-All") and Zhu et al. 2021 (synthetic-data GNN
-  precedent) sources are logged in `docs/REFERENCES_BY_COMPONENT.md` but not yet woven into §5.5's
-  prose — doing so would upgrade the "why this isn't circular" argument from reasoned-from-first-
-  principles to literature-grounded, which is a meaningfully stronger proposal claim.
+  Methodology & Plan of Work). This is already the most fully developed methodology subsection in
+  the document: data/shape/size, architecture, MVP/stretch/out-of-scope, the "why GNN, why not
+  circular" argument, and a 7-phase plan of work. **DONE (2026-08-29):** Gupta et al. 2025, Zhang
+  et al. 2025, Zhu et al. 2021, and Gayathri et al. 2025 are now woven directly into §5.5's
+  baseline-justification and synthetic-target paragraphs, plus a new paragraph grounding the
+  dynamic-ECC-over-static-quota argument in the Limits of Acceptable Change framework (Stankey et
+  al. 1985 + Dragovich & Bajpai 2022) — upgrading that argument from reasoned-from-first-principles
+  to literature-grounded throughout.
 - **3.6 Data collection & ethics summary** — existing §7 "Consolidated Dataset Plan" (table form,
   ready) and §8 "Ethics, Privacy and Risk" (ready, though the Ethics *Form* itself is a separate
   submission per `docs/GOVERNANCE_SUMMARY.md` §5, held pending your template).
@@ -175,13 +182,15 @@ Most of this proposal is **already written and verified** — the skeleton above
 list, not a from-scratch outline. The real new-writing items, in rough priority order for a
 Module-4-first pass:
 
-1. Front matter (title page, TOC, acronym list — mechanical, low-risk, do anytime)
-2. §4.5 literature review expansion to full prose (raises word count, directly strengthens your
-   section)
-3. §5.5 update weaving in the two new precedent papers (Gupta et al. 2025, Zhu et al. 2021)
-4. Optional comparison table (§2.7) for Module 4's literature
-5. Whole-project Plan of Work table (needs team input on dates — hold until available)
-6. Abstract + Conclusion (write last, once everything else is locked)
+1. ~~Front matter~~ / ~~§4.5 literature review expansion~~ / ~~§5.5 precedent weave-in~~ — **§4.5
+   and §5.5 done 2026-08-29** (see `docs/SOURCES_LOG.md`); front matter (title page, TOC, acronym
+   list) still open — mechanical, low-risk, do anytime.
+2. Optional comparison table (§2.7) for Module 4's literature — now has enough sourced material
+   (16+ Module 4 papers) to be worth building.
+3. M1–M3 literature-review subsections (§4.2–§4.4) are now comparatively the thinnest in the
+   document — out of Module-4 scope, but worth flagging to whoever owns that pass.
+4. Whole-project Plan of Work table (needs team input on dates — hold until available)
+5. Abstract + Conclusion (write last, once everything else is locked)
 
 Nothing here requires new research beyond what's already sourced and logged — this is a writing
 and assembly pass, not another literature search.

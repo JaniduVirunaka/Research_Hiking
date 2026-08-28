@@ -289,3 +289,122 @@ finding.
   — confirmed published 2021, vol 10 issue 7 (July), which is before the 2021-08-28 cutoff with no
   later online-first date found; do not cite it without re-confirming an online-first date on or
   after 2021-08-28.
+
+### 2026-08-29 — §4.5 literature-review deepening pass: LAC sourced, dead citation replaced, 9 new Module 4 sources
+- **Type:** finding + decision
+- **Claim:** Ran a dedicated research pass to close the specific gaps flagged in
+  `docs/PROPOSAL_SKELETON.md` for Module 4's literature review (§4.5): (1) find a real citable
+  source for the "Limits of Acceptable Change" framing that had been used only as unsourced prose
+  from an old Gemini chat export; (2) replace the dead RG 392533688 citation; (3) deepen each of
+  the five thematic strands (ST-GNN architecture, tourism-flow precedent, small/sparse-graph
+  precedent, synthetic-target precedent, local carrying-capacity grounding); (4) find precedent for
+  DEM-derived TWI as an ML covariate. All nine results below were independently verified (CrossRef
+  API, doi.org redirect, or the publisher's own landing page — not title-plausibility alone) and
+  have now been woven into `docs/PROJECT_PROPOSAL.md` §4.5 (rewritten as five thematic prose
+  paragraphs, each ending in an explicit critique sentence per the skeleton's "critique, not just
+  gap" note) and §5.5 (baseline-justification and synthetic-target paragraphs), and added to
+  `docs/REFERENCES_BY_COMPONENT.md`'s Module 4 table.
+- **Source(s), each independently resolved:**
+  1. **LAC foundational citation** — Stankey, Cole, Lucas, Petersen, Frissell, "The Limits of
+     Acceptable Change (LAC) System for Wilderness Planning", USDA Forest Service Gen. Tech. Rep.
+     INT-GTR-176, 1985. Verified via the official USDA Forest Service Treesearch record
+     (https://research.fs.usda.gov/treesearch/66741), cross-checked against Internet Archive and
+     Biodiversity Heritage Library listings showing identical bibliographic data.
+     **Foundational/classical exception (rule #4)** — 1985, cited for the named LAC method itself,
+     on the same basis as the already-accepted Cifuentes 1992 exception; every recent paper on LAC
+     (including #2 below) still cites this as the origin.
+  2. **LAC modern application** — Dragovich & Bajpai, "Managing Tourism and Environment—Trail
+     Erosion, Thresholds of Potential Concern and Limits of Acceptable Change", Sustainability
+     14(7):4291, 2022-04-04. DOI 10.3390/su14074291, resolved via doi.org redirect and
+     independently cross-confirmed via the CrossRef API. Applies LAC/TPC empirically to hiking-trail
+     erosion (trail width as the impact indicator) in a high-visitation national park. Passes the
+     recency rule (2022-04-04, after the 2021-08-28 cutoff).
+  3. **Replacement for dead RG 392533688** — Hewapathirana, "Advancing tourism demand forecasting
+     in Sri Lanka: evaluating the performance of machine learning models and the impact of social
+     media data integration", Journal of Tourism Futures 11(2):261 (online 2023-12-15, print 2025).
+     DOI 10.1108/JTF-06-2023-0149, confirmed via the Emerald publisher landing page and
+     independently via the CrossRef API (which additionally confirms both the online and print
+     dates). Sri Lanka-specific, hybrid SVR/Random Forest/ANN vs. SARIMA baseline, covers the same
+     methodological ground (hybrid statistical/ML national tourist-arrivals forecasting) the dead
+     citation was meant to cover.
+  4. Uremović, Mongus, Pur, Lukač, "Contextualized spatio-temporal graph-based method for
+     forecasting sparse geospatial sensor networks", Expert Systems with Applications 294:128779,
+     2025-12. DOI 10.1016/j.eswa.2025.128779, confirmed via CrossRef API bibliographic match
+     (direct ScienceDirect fetch was blocked with HTTP 403 — CrossRef is the authoritative
+     registry, treated as sufficient verification, but flagged for a human with institutional
+     ScienceDirect access to do a final visual confirmation before final submission, same caveat
+     for findings #5 and #6 below).
+  5. Acciai, Bilotta, Fanfani, Nesi, "Graph neural network for continuous traffic density
+     estimation on unmonitored roads from very few scattered measurements", Expert Systems with
+     Applications 327:132713, 2026-09 (per CrossRef). DOI 10.1016/j.eswa.2026.132713, confirmed via
+     CrossRef API. Structural analogy to Module 4's sparse manual-calibration-count situation.
+  6. Gayathri, Harshitha, Kriyasri, Balasundaram, "Enhancing crowd management through
+     behaviourally informed synthetic datasets and predictive deep learning models", Results in
+     Engineering 28:108210, 2025-12. DOI 10.1016/j.rineng.2025.108210, confirmed via CrossRef API
+     and independently corroborated by a ResearchGate listing and a VIT-Chennai research-centre
+     newsletter PDF describing identical content.
+  7. Ryu, Jung, Kim, Lee, "Visitor Number Prediction for Daegwallyeong Forest Trail Using Machine
+     Learning", Sustainability 17(13):6061, 2025-07. DOI 10.3390/su17136061, confirmed via CrossRef
+     API and independently corroborated via a ResearchGate listing describing the same methodology
+     (RF/GBM/LightGBM + Bayesian optimization, weather/social-media/calendar covariates, SHAP,
+     six trail sections).
+  8. Guo, Chen, Bai, Zhang, "Landscape Drivers of Trail Formation in Peri-Urban Mountains: Insights
+     from an Explainable Machine Learning Approach", Land 15(5):715, 2026-04. DOI
+     10.3390/land15050715, confirmed via CrossRef API metadata fetch (which returned the abstract
+     directly) and independently corroborated by a search snippet explicitly confirming slope,
+     elevation, and **TWI** are used as covariates.
+  9. Zhang, Wang, Yu, Yang, Zhou, Wang, "Do We Really Need GCNs in Traffic Forecasting? A
+     Graph-Less Pure-MLP Architecture", Companion Proceedings of the ACM Web Conference 2025 (WWW
+     '25 Companion), 2025-05. DOI 10.1145/3701716.3715464, confirmed via CrossRef API (direct ACM
+     landing-page fetch blocked with HTTP 403, same CrossRef-as-authoritative caveat as #4–#6).
+     Stronger, more directly on-point than the already-logged Gupta et al. 2025 for the "graph
+     structure isn't automatically worth it" argument, since this one is an empirical graph-free-
+     vs-GCN ablation rather than a GNN-vs-foundation-model comparison.
+- **Justification:** All nine are independently verified (not title-plausibility), on-topic for
+  Module 4, and pass the 5-year recency rule except the deliberately-flagged Stankey 1985
+  foundational exception. Satisfies rule #3 (source + one-line justification for every claim) and
+  rule #4 (recency, with the foundational exception explicitly labelled rather than presented as
+  recent literature).
+- **Recency check:** All of #2–#9 are dated 2021-08-28 or later (earliest is Zhu et al., already
+  logged 2026-08-28, online-dated Oct 2021). #1 (Stankey et al. 1985) is explicitly flagged as the
+  foundational/classical exception per rule #4, not presented as recent.
+- **Searched but excluded (do not re-search these angles expecting a different result without new
+  cause):**
+  - No Sri Lanka/Horton Plains-specific carrying-capacity paper newer than the already-logged
+    Senevirathna & Perera (2015) was found — the 2015 citation remains the best available; do not
+    treat this as unresearched.
+  - Páskova, Wall, Zejda, Zelenka, "Tourism carrying capacity reconceptualization" (J. Destination
+    Marketing & Management 21, DOI 10.1016/j.jdmm.2021.100638) — CrossRef lists the volume as
+    September 2021 but the precise online-first date relative to the 2021-08-28 cutoff could not be
+    confirmed (ScienceDirect fetch blocked, no precise date in available search snippets). **Not
+    used** — genuinely ambiguous, not guessed in either direction. If a human with ScienceDirect
+    access confirms an online-first date ≥2021-08-28, it would support the dynamic-vs-static
+    carrying-capacity narrative and could be added later.
+  - Liu et al., "Do We Really Need Graph Neural Networks for Traffic Forecasting?" (arXiv:2301.12603,
+    Jan 2023, the "SimST" paper) — content verified to exist and match its claimed conclusion, but
+    no confirmed peer-reviewed venue found. **Not used as primary** — Zhang et al. 2025 (ACM WWW
+    Companion, finding #9) makes the same argument with confirmed peer review and is cited instead;
+    Liu et al. could be added as secondary/supporting only if a preprint citation is later judged
+    acceptable.
+  - No wilderness/trail/rural-recreation-domain GNN paper with an explicitly small node count
+    (comparable to Horton Plains' 25–40 nodes) was found — all small/sparse-graph precedent
+    (findings #4, #5, plus the already-logged Gupta et al.) remains transportation/geospatial-
+    sensor domain, applied by structural analogy only. `docs/PROJECT_PROPOSAL.md` §4.5 states this
+    explicitly as a critique rather than overstating the match.
+  - SiGuNiang Mountain Scenic Area tourist-flow paper (Wang, Jiang, Su, ACM ICCNIOT 2024, DOI
+    10.1145/3670105.3670137) — verified to exist, but uses LSTM + Baidu search-behaviour data, not
+    a graph neural network, and is a small regional conference proceedings paper. Not used.
+  - VisitHGNN (Pang & Yang, arXiv:2510.02702, Oct 2025) — verified to exist (heterogeneous GNN for
+    POI visit-pattern modelling, Fulton County GA) but urban/socio-demographic, unconfirmed peer
+    review, no small-graph framing. Not used — doesn't add anything beyond what's already cited.
+  - ForecastPFN/TimePFN-style synthetically-trained zero-shot time-series foundation models — real,
+    but general time-series, not spatio-temporal-graph or occupancy/crowd-specific. Not used.
+  - Freycinet National Park GNSS visitor-tracking study (Journal of Sustainable Tourism 28(2),
+    2019) — real, but pre-2021-08-28 and not a named foundational method, so does not qualify for
+    the recency exception. Not used.
+- **Status:** active. Follow-ups for a human to action before final submission: (a) confirm the
+  Páskova et al. 2021 online-first date via direct ScienceDirect access if the dynamic-vs-static
+  carrying-capacity narrative would benefit from one more citation; (b) do a final visual
+  confirmation of findings #4, #5, #6 (Uremović, Acciai, Gayathri) and #9 (Zhang et al.) on their
+  publisher pages if institutional/VPN access to ScienceDirect/ACM DL is available, since the fetch
+  tool was blocked (HTTP 403) on all four and CrossRef API was used as the authoritative fallback.
