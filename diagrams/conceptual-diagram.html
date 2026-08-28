@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Figure 1 — Conceptual Architecture</title>
+<style>
+  :root{
+    --ink:#1a1a1a; --muted:#666; --line:#cfd4da;
+    --m1:#2e7d32; --m1bg:#eaf5eb;
+    --m2:#b26a00; --m2bg:#fdf3e3;
+    --m3:#1565c0; --m3bg:#e8f1fb;
+    --m4:#6a1b9a; --m4bg:#f3e9fa;
+    --edge:#0a7d7d; --edgebg:#e7f6f6;
+  }
+  *{box-sizing:border-box;}
+  body{font-family:"Segoe UI",Arial,Helvetica,sans-serif;color:var(--ink);
+       background:#fff;margin:0;padding:28px;}
+  .fig{max-width:1080px;margin:0 auto;}
+  h1{font-size:18px;margin:0 0 2px;}
+  .sub{font-size:12.5px;color:var(--muted);margin:0 0 18px;}
+  .band{border:1.5px dashed var(--edge);background:var(--edgebg);
+        border-radius:10px;padding:10px 14px 16px;margin-bottom:16px;}
+  .band-label{font-size:12px;font-weight:700;color:var(--edge);
+        letter-spacing:.04em;text-transform:uppercase;margin-bottom:10px;}
+  .grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .card{border:1.5px solid var(--line);border-radius:10px;background:#fff;overflow:hidden;}
+  .card h2{font-size:13.5px;margin:0;padding:9px 12px;color:#fff;display:flex;
+        justify-content:space-between;align-items:center;gap:8px;}
+  .where{font-size:10.5px;font-weight:600;background:rgba(255,255,255,.25);
+        padding:2px 7px;border-radius:20px;white-space:nowrap;}
+  .m1 h2{background:var(--m1);} .m1 .io{background:var(--m1bg);}
+  .m2 h2{background:var(--m2);} .m2 .io{background:var(--m2bg);}
+  .m3 h2{background:var(--m3);} .m3 .io{background:var(--m3bg);}
+  .m4 h2{background:var(--m4);} .m4 .io{background:var(--m4bg);}
+  .rows{padding:10px 12px;font-size:12px;line-height:1.45;}
+  .row{display:grid;grid-template-columns:64px 1fr;gap:8px;margin-bottom:7px;}
+  .row:last-child{margin-bottom:0;}
+  .tag{font-weight:700;font-size:10.5px;text-transform:uppercase;letter-spacing:.03em;
+       color:var(--muted);padding-top:1px;}
+  .io{font-weight:600;border-radius:6px;padding:6px 8px;}
+  .note{font-size:11.5px;color:var(--muted);text-align:center;margin:4px 0 14px;font-style:italic;}
+  .sync{display:flex;align-items:center;justify-content:center;gap:10px;margin:6px 0 14px;
+        font-size:12px;font-weight:600;color:var(--edge);}
+  .sync .pill{border:1.5px solid var(--edge);background:var(--edgebg);
+        border-radius:20px;padding:5px 14px;}
+  .arrow{font-size:18px;color:var(--edge);}
+  .dash{border:1.5px solid var(--line);border-radius:10px;background:#fafbfc;
+        padding:12px 14px;text-align:center;}
+  .dash b{font-size:13px;} .dash .items{font-size:12px;color:#333;margin-top:4px;}
+  .legend{font-size:11px;color:var(--muted);margin-top:14px;line-height:1.5;}
+  .legend b{color:var(--ink);}
+  .cap{font-size:12px;color:#333;margin-top:14px;border-top:1px solid var(--line);padding-top:10px;}
+</style>
+</head>
+<body>
+<div class="fig">
+  <h1>Figure 1 — Conceptual Architecture: Four Independent Edge-AI Modules</h1>
+  <p class="sub">A Decentralised, Edge-Native AI Framework for Sustainable Hiking Tourism in Sri Lanka · hardware-free · offline-first</p>
+
+  <div class="band">
+    <div class="band-label">Hiker's smartphone — on-device, offline (real time)</div>
+    <div class="grid">
+
+      <div class="card m1">
+        <h2><span>Module 1 · Terrain &amp; Effort</span><span class="where">phone · real-time</span></h2>
+        <div class="rows">
+          <div class="row"><span class="tag">Input</span><span class="io">IMU (accel + gyro) · GPS distance · barometric/DEM elevation</span></div>
+          <div class="row"><span class="tag">Process</span><span>Quantised CNN-LSTM terrain classifier (2.56 s windows, fixed phone position) + Naismith/Tobler energy-expenditure effort model</span></div>
+          <div class="row"><span class="tag">Output</span><span class="io">Terrain-difficulty tags + personal "rest / turn-back" fatigue gauge</span></div>
+        </div>
+      </div>
+
+      <div class="card m2">
+        <h2><span>Module 2 · Vision</span><span class="where">phone · real-time</span></h2>
+        <div class="rows">
+          <div class="row"><span class="tag">Input</span><span class="io">Ground-level RGB frames, sampled 1–2 fps</span></div>
+          <div class="row"><span class="tag">Process</span><span>INT8 YOLOv8-seg: litter detection + degradation segmentation (erosion, roots) with ClutterScore noise filter</span></div>
+          <div class="row"><span class="tag">Output</span><span class="io">Geotagged litter counts + trail-degradation map</span></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="grid">
+
+    <div class="card m3">
+      <h2><span>Module 3 · Hiker Assistant</span><span class="where">offline · on-device RAG</span></h2>
+      <div class="rows">
+        <div class="row"><span class="tag">Input</span><span class="io">Curated knowledge base (rules, safety, trails, species, fair-price info) cached on device</span></div>
+        <div class="row"><span class="tag">Process</span><span>Local semantic search + small quantised LLM answers using only retrieved trusted text (RAG), with source shown</span></div>
+        <div class="row"><span class="tag">Output</span><span class="io">Short, grounded, source-cited answers (safety / rules / trail)</span></div>
+      </div>
+    </div>
+
+    <div class="card m4">
+      <h2><span>Module 4 · Crowd &amp; Carrying-Capacity</span><span class="where">back-end · standalone</span></h2>
+      <div class="rows">
+        <div class="row"><span class="tag">Input</span><span class="io">OpenStreetMap trail graph · Copernicus GLO-30 DEM (slope, TWI) · ERA5 weather/seasonality</span></div>
+        <div class="row"><span class="tag">Process</span><span>ST-GNN (GCN + temporal LSTM, adaptive attention); foot-traffic <i>proxy-modelled</i> (permit caps × seasonality), calibrated &amp; baselined</span></div>
+        <div class="row"><span class="tag">Output</span><span class="io">Bottleneck forecasts + dynamic Effective Carrying Capacity (ECC) recommendations</span></div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="note">Independent peers — no module consumes another's output. Module 4 is fully standalone (no arrows between modules).</p>
+
+  <div class="sync">
+    <span class="pill">KB-scale derived telemetry only (tags · scores · GPS · timestamps)</span>
+    <span class="arrow">⟶ synced when online ⟶</span>
+  </div>
+
+  <div class="dash">
+    <b>Optional shared dashboard</b>
+    <div class="items">Trail condition (M1 + M2) · Hiker assistant (M3) · Crowd &amp; dynamic ECC (M4) — display only, not a dependency</div>
+  </div>
+
+  <div class="legend">
+    <b>Privacy-by-design:</b> all raw IMU streams and images are processed locally and never leave the device; only kilobyte-scale derived features sync opportunistically. &nbsp;
+    <b>No IoT hardware</b> is deployed in the park; <b>no cloud connectivity</b> is required on-trail.
+  </div>
+
+  <p class="cap"><b>Figure 1.</b> Four self-contained edge-AI modules. Modules 1–2 run in real time on the hiker's phone; Module 3 runs offline on cached text; Module 4 is a standalone back-end forecaster using only open geospatial/weather data. The modules are loosely coupled — an optional dashboard merely displays their outputs together.</p>
+</div>
+</body>
+</html>

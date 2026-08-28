@@ -1,0 +1,24 @@
+# OS / editor
+.DS_Store
+Thumbs.db
+*.tmp
+*.bak
+
+# Model artifacts / datasets (too large for git; document location in docs/ instead)
+*.pt
+*.pth
+*.tflite
+*.onnx
+*.h5
+/data/
+/models/
+/datasets/
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Node (if any module ends up with a JS/TS app component)
+node_modules/

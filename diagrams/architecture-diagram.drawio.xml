@@ -1,0 +1,119 @@
+<mxfile host="app.diagrams.net" type="device">
+  <diagram name="System Architecture" id="taf-arch-1">
+    <mxGraphModel dx="1400" dy="900" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1400" pageHeight="800" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- TITLE -->
+        <mxCell id="title" value="Figure 1. System Architecture (hardware-free, edge-native, offline-first)" style="text;html=1;align=left;verticalAlign=middle;fontSize=16;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="20" width="1100" height="30" as="geometry" />
+        </mxCell>
+
+        <!-- COLUMN HEADERS -->
+        <mxCell id="hIn" value="INPUTS&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#777777&quot;&gt;Local / Cached&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="40" y="60" width="220" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hPh" value="SMARTPHONE (Edge Device)&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#777777&quot;&gt;All processing on-device (offline)&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="320" y="60" width="300" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hSy" value="SYNC" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="60" width="180" height="44" as="geometry" />
+        </mxCell>
+        <mxCell id="hDa" value="ADMIN DASHBOARD&lt;br&gt;&lt;font style=&quot;font-size:10px&quot; color=&quot;#777777&quot;&gt;Central View&lt;/font&gt;" style="text;html=1;align=center;verticalAlign=middle;fontSize=13;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="900" y="60" width="240" height="44" as="geometry" />
+        </mxCell>
+
+        <!-- INPUTS -->
+        <mxCell id="in1" value="&lt;b&gt;M1. TERRAIN&lt;/b&gt;&lt;br&gt;&lt;br&gt;• IMU (accel + gyro)&lt;br&gt;• GPS distance&lt;br&gt;• Barometric elevation" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="120" width="220" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="in2" value="&lt;b&gt;M2. VISION&lt;/b&gt;&lt;br&gt;&lt;br&gt;• RGB camera frames (1–2 fps)&lt;br&gt;• Ground-level trail view" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="224" width="220" height="92" as="geometry" />
+        </mxCell>
+        <mxCell id="in3" value="&lt;b&gt;M3. ASSISTANT KB&lt;/b&gt;&lt;br&gt;&lt;br&gt;• Park rules, permits, safety / first-aid&lt;br&gt;• Trail guides, species, fair-price info&lt;br&gt;• Cached offline (official / open)" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="328" width="220" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="in4" value="&lt;b&gt;M4. FORECASTING&lt;/b&gt;&lt;br&gt;&lt;br&gt;• OpenStreetMap (trails)&lt;br&gt;• DEM (Copernicus GLO-30)&lt;br&gt;• ERA5 weather + seasonality" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="40" y="438" width="220" height="98" as="geometry" />
+        </mxCell>
+
+        <!-- PHONE CONTAINER -->
+        <mxCell id="phone" value="" style="rounded=1;arcSize=8;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;strokeWidth=2.5;verticalAlign=top;" vertex="1" parent="1">
+          <mxGeometry x="318" y="112" width="304" height="600" as="geometry" />
+        </mxCell>
+        <mxCell id="notch" value="" style="rounded=1;arcSize=40;fillColor=#1C1C1C;strokeColor=none;" vertex="1" parent="1">
+          <mxGeometry x="443" y="124" width="54" height="6" as="geometry" />
+        </mxCell>
+
+        <mxCell id="pa1" value="&lt;b&gt;M1. TERRAIN ANALYTICS&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:10px&quot;&gt;1-D CNN-LSTM (INT8)&lt;/font&gt;&lt;br&gt;• Classify terrain type&lt;br&gt;• Energy expenditure (Naismith + Tobler)&lt;br&gt;• Fatigue estimate" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="338" y="150" width="264" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="pa2" value="&lt;b&gt;M2. VISION ANALYTICS&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:10px&quot;&gt;YOLOv8-seg (INT8)&lt;/font&gt;&lt;br&gt;• Litter count&lt;br&gt;• Trail degradation (segmentation)&lt;br&gt;• ClutterScore filtering" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="338" y="256" width="264" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="pa3" value="&lt;b&gt;M3. HIKER ASSISTANT&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:10px&quot;&gt;On-device RAG (small LLM + vector search)&lt;/font&gt;&lt;br&gt;• Answers hiker questions offline&lt;br&gt;• Grounded in trusted knowledge base&lt;br&gt;• Shows source · safety / rules / trail" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="338" y="362" width="264" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="pa4" value="&lt;b&gt;M4. FORECASTING ANALYTICS&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:10px&quot;&gt;ST-GNN (GCN + LSTM) · standalone&lt;/font&gt;&lt;br&gt;• Bottleneck prediction&lt;br&gt;• Flow forecast&lt;br&gt;• High-risk windows" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="338" y="468" width="264" height="98" as="geometry" />
+        </mxCell>
+        <mxCell id="priv" value="&lt;b&gt;🔒 Privacy-by-Design&lt;/b&gt;&lt;br&gt;All processing local. No raw data leaves the device." style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;dashed=1;align=center;verticalAlign=middle;spacing=6;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="338" y="578" width="264" height="62" as="geometry" />
+        </mxCell>
+
+        <!-- SYNC -->
+        <mxCell id="ant" value="((•))" style="text;html=1;align=center;verticalAlign=middle;fontSize=20;fontStyle=1;" vertex="1" parent="1">
+          <mxGeometry x="660" y="250" width="180" height="40" as="geometry" />
+        </mxCell>
+        <mxCell id="sync" value="&lt;b&gt;KB-sized Async Sync&lt;/b&gt;&lt;br&gt;&lt;font color=&quot;#666666&quot; style=&quot;font-size:10px&quot;&gt;(when connected)&lt;/font&gt;&lt;br&gt;&lt;br&gt;• Geotagged classifications&lt;br&gt;• Numeric scores&lt;br&gt;• Timestamps&lt;br&gt;• No raw data / images / text" style="rounded=1;arcSize=10;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=10;" vertex="1" parent="1">
+          <mxGeometry x="660" y="300" width="180" height="150" as="geometry" />
+        </mxCell>
+
+        <!-- DASHBOARD -->
+        <mxCell id="d1" value="&lt;b&gt;Hiker Safety Alerts&lt;/b&gt;&lt;br&gt;Fatigue / risk warnings" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="120" width="240" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="d2" value="&lt;b&gt;Park Degradation Map&lt;/b&gt;&lt;br&gt;High-resolution litter + erosion" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="208" width="240" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="d3" value="&lt;b&gt;Hiker Guidance &amp; Transparency&lt;/b&gt;&lt;br&gt;Common questions, safety &amp; price-fairness reports" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="296" width="240" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="d4" value="&lt;b&gt;Dynamic ECC Ticketing&lt;/b&gt;&lt;br&gt;Capacity threshold recommendations" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#1C1C1C;align=left;verticalAlign=top;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="384" width="240" height="74" as="geometry" />
+        </mxCell>
+        <mxCell id="admin" value="&lt;b&gt;Park Administration&lt;/b&gt;&lt;br&gt;Informed decisions, replace static quotas" style="rounded=1;arcSize=12;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#1C1C1C;strokeWidth=1.8;align=center;verticalAlign=middle;spacing=8;fontSize=11;" vertex="1" parent="1">
+          <mxGeometry x="900" y="500" width="240" height="74" as="geometry" />
+        </mxCell>
+
+        <!-- ARROWS -->
+        <mxCell id="e1" style="endArrow=block;html=1;rounded=0;strokeColor=#1C1C1C;strokeWidth=2.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="268" y="380" as="sourcePoint" />
+            <mxPoint x="316" y="380" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" value="" style="endArrow=block;html=1;rounded=0;strokeColor=#1C1C1C;strokeWidth=2.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="624" y="380" as="sourcePoint" />
+            <mxPoint x="658" y="375" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" style="endArrow=block;html=1;rounded=0;strokeColor=#1C1C1C;strokeWidth=2.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="842" y="375" as="sourcePoint" />
+            <mxPoint x="898" y="375" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e4" style="endArrow=block;html=1;rounded=0;strokeColor=#1C1C1C;strokeWidth=2.5;" edge="1" parent="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1020" y="460" as="sourcePoint" />
+            <mxPoint x="1020" y="500" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
