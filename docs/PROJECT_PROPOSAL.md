@@ -10,6 +10,131 @@
 
 ---
 
+## Title Page
+
+**A Decentralised, Edge-Native AI Framework for Sustainable Hiking Tourism in Sri Lanka**
+
+| | |
+|---|---|
+| **Project ID** | J26-IT-363 |
+| **Programme** | BSc (Hons) Information Technology — IT4010 Research Project, 2026 July intake |
+| **Research group** | AIMS (Autonomous Intelligent Machines and Systems) |
+| **Faculty** | Faculty of Computing, Sri Lanka Institute of Information Technology (SLIIT) |
+| **Supervisor** | Dr. Prasanna Sumathipala |
+| **Co-supervisor** | Ms. Thisara Shyamalee |
+
+| Reg. No | Name | Module |
+|---|---|---|
+| IT23389656 | Ahamed M.N.I | Module 1 — Terrain & Effort Profiling |
+| IT23386372 | Kankanige S.S | Module 2 — Trail Degradation & Litter Vision |
+| IT23394506 | Ahamed M.M | Module 3 — Offline Hiker Information Assistant |
+| IT23343948 | Weerasekara J.V | Module 4 — Crowd & Carrying-Capacity Forecasting |
+
+*Date of submission: — (fill in against the team's confirmed Proposal deadline once the shared
+project timeline is set; a whole-project Plan of Work table is planned but not yet added — see
+`docs/PROPOSAL_SKELETON.md` §4.1).*
+
+> **Note (per `CLAUDE.md`):** this table reflects TAF v5, the panel-accepted scope, as of
+> 2026-07-07. Confirm no member/module reassignment has occurred before final submission.
+
+---
+
+## Table of Contents
+
+*Auto-generate this from the final section headings once the document structure is locked (per
+`docs/PROPOSAL_SKELETON.md` — do not hand-number sections in a working draft, since numbering
+will shift as remaining sections are added).*
+
+---
+
+## List of Figures and Tables
+
+*Populate once diagrams are placed (see `diagrams/` — architecture diagram, Module 4's trail-graph
+diagram, etc.). Tables already present in this document as of 2026-08-29:*
+
+- Table §3 — Research Objectives and the Gaps They Close
+- Table §4.5.1 — Synthesis: ST-GNN / flow-forecasting precedent compared (Module 4)
+- Table §5.5 — Module 4 Plan of Work (7-phase)
+- Table §7 — Consolidated Dataset Plan
+- Table §10 — Plan of Work: shared milestones and per-module phase mapping (whole-project)
+
+---
+
+## List of Acronyms
+
+| Acronym | Meaning |
+|---|---|
+| ABM | Agent-Based Modelling |
+| API | Application Programming Interface |
+| CC BY / CC0 / CC BY-SA | Creative Commons Attribution / Public Domain Dedication / ShareAlike (licence types) |
+| CNN | Convolutional Neural Network |
+| CV | Computer Vision |
+| DEM | Digital Elevation Model |
+| DWC | Department of Wildlife Conservation (Sri Lanka) |
+| ECC | Effective Carrying Capacity |
+| ERA5 | ECMWF Reanalysis v5 (climate/weather reanalysis dataset) |
+| F1 | F1 score (harmonic mean of precision and recall) |
+| FL | Federated Learning |
+| fps | Frames per second |
+| FYP | Final-Year Project |
+| GCN | Graph Convolutional Network |
+| GNN | Graph Neural Network |
+| GPS / GPX | Global Positioning System / GPS Exchange Format (track file format) |
+| IEEE | Institute of Electrical and Electronics Engineers |
+| IMU | Inertial Measurement Unit |
+| INT8 | 8-bit integer (quantisation precision) |
+| IoT | Internet of Things |
+| IoU | Intersection over Union |
+| κ (kappa) | Cohen's kappa (inter-annotator agreement statistic) |
+| LAC | Limits of Acceptable Change (wilderness-management framework) |
+| LLM / SLM | Large Language Model / Small Language Model |
+| LSTM | Long Short-Term Memory (recurrent neural network) |
+| mAP | Mean Average Precision |
+| MLP | Multi-Layer Perceptron |
+| MVP | Minimum Viable Product |
+| ODbL | Open Database License |
+| OSM | OpenStreetMap |
+| PCC / RCC | Physical Carrying Capacity / Real Carrying Capacity (Cifuentes cascade) |
+| RAG | Retrieval-Augmented Generation |
+| RF | Random Forest |
+| RG | ResearchGate (publication identifier prefix used in this project's citations) |
+| RPE | Rating of Perceived Exertion |
+| SBERT | Sentence-BERT (sentence embedding model) |
+| SDG | Sustainable Development Goal (UN) |
+| SHAP | SHapley Additive exPlanations (explainable-AI method) |
+| SLIIT | Sri Lanka Institute of Information Technology |
+| SLTDA | Sri Lanka Tourism Development Authority |
+| ST-GNN | Spatio-Temporal Graph Neural Network |
+| TAF | Topic Assessment Form |
+| TFLite / NCNN / CoreML | On-device ML inference runtimes (Google / Tencent / Apple) |
+| TWI | Topographic Wetness Index |
+| XGBoost | Extreme Gradient Boosting |
+| YOLO | You Only Look Once (object detection/segmentation architecture family) |
+
+---
+
+## Abstract
+
+Sri Lanka's central highlands are seeing rapid growth in hiking tourism — SLTDA recorded 2.36
+million arrivals in 2025, and the Pekoe Trail demand study projects roughly 35,000 dedicated
+hikers by 2033 — while trail management remains static: fixed daily permit quotas that cannot
+respond to real-time weather, erosion, or crowding, and mobile connectivity that fails once hikers
+leave the trailhead. This proposal presents a decentralised, edge-native AI framework of four
+independent, hardware-free smartphone modules addressing this gap without deploying any on-trail
+IoT infrastructure: IMU-based terrain and effort profiling, on-device computer vision for litter
+and trail-degradation detection, an offline retrieval-augmented hiker information assistant, and a
+Spatio-Temporal Graph Neural Network (ST-GNN) forecasting crowding and a dynamic Effective Carrying
+Capacity (ECC) for Horton Plains National Park. The four modules are loosely coupled peers, not a
+fused pipeline — each is independently deployable and evaluable. This document develops the fourth
+module in depth: a small (25–40 node) trail-graph ST-GNN trained on a permit-cap- and
+seasonality-anchored synthetic occupancy series, calibrated against manual counts, and benchmarked
+against per-node LSTM, historical-average, and ARIMA baselines to test — rather than assume —
+whether graph structure adds value at this scale. Expected outcomes are a validated
+occupancy/bottleneck forecasting pipeline, an honestly-scoped synthetic-target evaluation, and a
+Cifuentes-cascade-derived dynamic capacity recommendation replacing the current static quota.
+
+---
+
 ## 0. In Plain Terms (non-technical summary)
 
 **The big idea:** four independent smartphone/edge-AI tools that help keep Sri Lankan hiking trails sustainable — each works on its own, *without installing equipment on the mountain and without needing internet up there.*
@@ -96,6 +221,32 @@ Litter detection is mature: YOLOv8 + Norfair tracking for floating bottles at >0
 **Synthetic/simulated training-target precedent.** Because no segment-level Sri Lankan trail foot-traffic data exists, Module 4's occupancy target is synthesised from permit caps, SLTDA seasonality, and a Tobler-based movement model — a design choice that needs its own precedent to avoid reading as an ad hoc workaround. Spatiotemporal multi-graph convolutional networks trained with synthetic data for traffic-volume forecasting (Zhu et al., *Expert Systems with Applications* 187:115992, 2021/2022) is a peer-reviewed precedent for synthetic-data-assisted GNN training generally; more specifically on point, behaviourally-informed synthetic datasets built from movement rules (group dynamics, age-specific speed profiles) used to train predictive deep-learning models for crowd density and level-of-service (Gayathri et al., *Results in Engineering* 28:108210, 2025) is close structurally to Module 4's own permit-cap × seasonality × movement-model pipeline — both construct a synthetic ground truth from behavioural/regulatory rules rather than measuring it directly, then train a predictive model against that construction. **Critique:** in both precedents the synthetic data is a training-time augmentation alongside at least some real measurements, not the sole target as in Module 4's MVP — which is exactly why §5.5's partial-circularity discussion and calibration-count validation remain necessary rather than optional.
 
 **Local carrying-capacity grounding and the theoretical case for a *dynamic* ECC.** Carrying-capacity-specific ML already exists in forestry tourism (multi-source GAT-Transformer, Ma & Geng, MDPI *Forests* 17(5):534, 2026) and in a landscape-driver study of trail formation using slope, elevation, and the **Topographic Wetness Index** as explainable-ML covariates (Guo et al., *Land* 15(5):715, 2026) — the latter is a direct precedent for Module 4's own use of DEM-derived TWI as a node feature, since it shows TWI validated as a covariate for trail/hiker spatial behaviour rather than only as a hydrology metric. Explainable tourist-arrival drivers via XGBoost + SHAP (Istanbul, Emerald *JHTT*, 2025) and, replacing the previously-unverifiable RG 392533688 claim, Sri Lanka-specific hybrid ML tourism-demand forecasting comparing SVR/Random Forest/ANN against a SARIMA baseline with social-media-sentiment integration (Hewapathirana, *Journal of Tourism Futures* 11(2):261, 2023/2025) inform the temporal/seasonal feature design. The case for *why* a dynamic, condition-responsive capacity number is preferable to a fixed permit quota rests on the **Limits of Acceptable Change (LAC)** framework (Stankey et al., USDA Forest Service GTR-INT-176, 1985 — **foundational/classical citation, cited for the named LAC method itself, on the same basis as the Cifuentes 1992 exception already used for the ECC cascade**), which reframes management around monitoring condition indicators against thresholds rather than capping visitor counts outright; a recent, directly on-domain application pairs this foundational cite with an empirical case — trail erosion assessed against Thresholds of Potential Concern and LAC in a high-visitation national park, using trail width as the impact indicator (Dragovich & Bajpai, *Sustainability* 14(7):4291, 2022). Together these support the proposal's own framing (echoed from the project's early scoping notes): a fixed daily quota cannot distinguish 50 hikers in a monsoon downpour from 300 on a dry day, whereas a condition/threshold-based approach — which a dynamically forecast ECC operationalises — can. **Gap:** none of the above operates on a *micro-spatial wilderness* graph offline; Module 4 adapts urban/regional ST-GNN methodology, small/sparse-graph baseline discipline, and synthetic-target precedent into that combination for the first time on a Sri Lankan trail network.
+
+#### 4.5.1 Synthesis: ST-GNN / flow-forecasting precedent compared
+
+The five strands above are deliberately different in kind — architecture papers, domain-transfer papers, sparsity-specific papers, synthetic-data papers, and management-theory papers — so a flat citation list would understate how they combine. The table below places every methodological (non-management-theory) source from §4.5 on the same axes Module 4 must itself be judged on: how big is the graph, is the ground truth real or constructed, and does the paper actually test graph structure against a non-graph baseline. Reading down the "vs. non-graph baseline?" column is the single fastest way to see the gap Module 4 fills: almost nothing in the traffic/tourism mainstream tests this, which is exactly why §5.5 makes the baseline comparison mandatory rather than optional.
+
+| Source | Domain | Graph size | Ground truth | Tests vs. non-graph baseline? | What it establishes for Module 4 |
+|---|---|---|---|---|---|
+| Spatio-Temporal Pivotal GNN, AAAI 2024 | Urban traffic | Large (100s of sensors) | Real, continuous | No | Core ST-GNN propagation architecture |
+| Adaptive ST-attention, PMC11723455, 2024 | Urban traffic | Large | Real, continuous | No | Adaptive attention mechanism to borrow from |
+| ST Dual GNN, arXiv 2105.13591, 2021 | Urban travel-time | Large | Real, continuous | No | Node **and** edge-wise modelling (edges matter for trail travel-time) |
+| STZINB-GNN, Stanford CS224W | Urban travel demand | Large | Real, sparse/over-dispersed counts | No | Handling zero-inflated, low-count demand — the trail's likely distribution shape |
+| Jia & Chen, Informatica 2025 | Tourism flow | Regional (not specified small) | Real | No | Closest architectural analogue in the tourism domain |
+| Du et al., *Applied Intelligence* 2025 | Pedestrian flow | Urban | Real | No | Confirms GNNs transfer from vehicle to pedestrian scale |
+| Dong et al., *JABES* 2025 | Pedestrian volume | Urban | Real | No | Same confirmation, different architecture (diffusion-conv GRU) |
+| Ryu et al., *Sustainability* 2025 | **Forest trail** (6 sections) | **Small** | Real (counted) | N/A — no graph model used | Domain-identical feature design (weather + calendar); small trail → authors chose tree ensembles over a graph model |
+| **Gupta et al., ACM BuildSys 2025** | Sparse IoT sensor networks | **Small/sparse** | Real | **Yes** | No architecture (GNN incl.) dominates on sparse graphs — direct precedent for Module 4's mandatory-baseline design |
+| **Zhang et al., ACM WWW '25 Companion** | Urban traffic | Large, but graph-free ablation | Real | **Yes** | Graph-free pure-MLP matches GCN — strongest evidence graph structure isn't automatically worth it |
+| Uremović et al., *ESWA* 2025 | Geospatial sensor networks | Sparse | Real | No | Sparsity-specific architecture, not a baseline test |
+| Acciai et al., *ESWA* 2026 | Road traffic density | Sparse (few measurement points) | Real, sparse | No | Structural analogue to Module 4's few calibration points |
+| Zhu et al., *ESWA* 2021/2022 | Urban traffic volume | Large | **Synthetic-assisted** | No | Peer-reviewed precedent for synthetic-data-assisted GNN training |
+| Gayathri et al., *Results in Engineering* 2025 | Crowd density | Not graph-based | **Synthetic (behaviour-rule-generated)** | N/A | Closest structural analogue to the permit-cap × seasonality × movement-model pipeline |
+| Ma & Geng, MDPI *Forests* 2026 | Forestry tourism | Not specified | Real, multi-source | No | Carrying-capacity-specific ML precedent |
+| Guo et al., *Land* 2026 | Trail formation | N/A (spatial ML, not graph-temporal) | Real | N/A | Validates slope/elevation/TWI as ML covariates |
+| **Module 4 (this proposal)** | **Wilderness trail** | **Very small (25–40 nodes)** | **Synthetic, calibration-validated** | **Yes — mandatory, by design** | Combines small-graph baseline discipline + synthetic-target precedent + domain-specific covariates, offline |
+
+**What the table shows that the prose alone does not:** only two of seventeen precedent sources (Gupta et al.; Zhang et al.) actually test a graph model against a non-graph baseline, and neither is set in a small, offline, single-domain wilderness network. Module 4 is the only row that is simultaneously very-small-graph, synthetic-ground-truth, and baseline-tested — which is the precise, falsifiable combination §5.5 commits to reporting honestly rather than assuming.
 
 ---
 
@@ -319,7 +470,87 @@ The four modules are **peers**, each a complete sub-project with its own data, m
 - **M3:** answer quality on the ~100–200 Q&A eval set (correctness + is it grounded in a real source), retrieval hit-rate, hallucination rate, and on-device latency; human rating of helpfulness.
 - **M4:** RMSE/MAE under **spatial block CV** vs simpler baselines (per-node LSTM, historical-average, ARIMA) to justify the GNN; feature-ablation over weather/terrain/calendar; bottleneck lead-time; statistical significance (paired t-test, p<0.05). State the synthetic-target caveat in every result.
 
-## 10. Corrections carried over from the source-material audit
+## 10. Plan of Work (whole-project)
+
+**Shared milestones** (per `docs/GOVERNANCE_SUMMARY.md` §4 — the IT4010 checkpoint sequence for
+this cohort). Two are already complete; the rest have no team-confirmed dates yet, so none are
+guessed here:
+
+| Milestone | Deliverable | Status |
+|---|---|---|
+| TAF | Topic Assessment Form | **Done** — v5 panel-accepted, 2026-07-07 |
+| Project Charter | Charter + signed Use of AI Policy | **Done** — submitted 2026-08-01 |
+| Proposal | This document + Ethics Form | In progress (this pass: front matter, §4.5 lit-review deepening, §4.5.1 synthesis table) |
+| PP1 (50%) | Status Doc 1 — Git repository (README, architecture diagram, full commit history) | Not started — date TBD |
+| PP2 (90%) | Status Doc 2 — evidence of PM-tool use (MS Planner export) | Not started — date TBD |
+| Final Evaluation | Demo, presentation, viva | Not started — date TBD |
+| Thesis Submission | Final thesis document | Not started — date TBD |
+
+*Dates for PP1 onward are intentionally left blank rather than estimated — no team or supervisor
+date has been confirmed for any of them as of 2026-08-29 (see `docs/SOURCES_LOG.md`). Fill in as
+soon as the team/supervisor sets them; do not backfill with a guessed schedule.*
+
+**Per-module phase mapping.** Each module runs its own internal phase sequence (data collection →
+model development → evaluation → integration → thesis write-up) inside the shared milestone
+windows above. Module 4's own 7-phase breakdown is already detailed in §5.5 (graph & feature build
+→ synthetic target construction → field calibration → baseline models → ST-GNN development →
+evaluation → ECC cascade & outputs) and is reused here rather than restated:
+
+| Module | Phase 1–2 (roughly: Proposal → PP1) | Phase 3–5 (roughly: PP1 → PP2) | Phase 6–7 (roughly: PP2 → Final) |
+|---|---|---|---|
+| M1 Terrain & Effort | Public-dataset pre-training; primary IMU data collection begins | Terrain classifier fine-tuning; effort/fatigue model integration | On-device deployment; LOSO-CV evaluation; thesis write-up |
+| M2 Vision | Litter-model pre-training on public sets; begin ground-level image collection | Custom-set annotation (litter + degradation masks); YOLOv8/v11-seg fine-tuning | On-device quantisation; mAP/IoU evaluation; thesis write-up |
+| M3 RAG Assistant | Curate knowledge base; select/quantise SLM + embedding model | Build vector index; construct Q&A evaluation set | Retrieval/generation evaluation; on-device latency testing; thesis write-up |
+| M4 ST-GNN | §5.5 Phases 1–2 (graph & feature build; synthetic target construction) | §5.5 Phases 3–5 (field calibration; baseline models; ST-GNN development) | §5.5 Phases 6–7 (evaluation; ECC cascade & outputs); thesis write-up |
+
+*This table is intentionally coarse (three windows, not calendar dates) since the shared milestone
+dates it aligns to are themselves still unset. Once PP1/PP2/Final dates are confirmed, replace the
+three windows with actual date ranges per module — a Gantt-style view (per the Horizon Europe
+work-package convention already used to validate this document's structure, see
+`docs/SOURCES_LOG.md` 2026-08-28 entry) is the natural next step at that point, not before.*
+
+**Individual member contribution note.** Reuses the ownership table already in the Title Page above
+and in `CLAUDE.md` — not redrafted here. Each member owns their module end-to-end (data collection,
+labelling, modelling, evaluation, thesis chapter) per the loosely-coupled architecture in §6; no
+member's deliverable is blocked on another's, consistent with the "four independent modules" claim
+running through this proposal.
+
+## Conclusion
+
+This proposal set out to answer whether a decentralised, edge-native AI framework can dynamically
+estimate and manage the effective carrying capacity of Sri Lankan hiking trails — fusing
+smartphone-sensed hiker biomechanics, ground-level computer vision, and offline hiker guidance,
+while a fourth, standalone module forecasts crowding — all without IoT infrastructure and without
+requiring connectivity. The proposed answer is a suite of four loosely-coupled modules rather than
+one fused system: each closes a documented, literature-backed gap in isolation (offline terrain/
+effort sensing, ground-level degradation vision under canopy occlusion, on-device grounded
+question-answering, and micro-spatial wilderness occupancy forecasting), and none depends on
+another to function or to be evaluated. For Module 4 specifically, the research process applied
+here has been deliberately conservative about its own novelty claim: rather than assuming a
+Spatio-Temporal Graph Neural Network outperforms simpler models on a 25–40 node trail graph, §5.5
+and the §4.5.1 synthesis table commit the module to testing that claim against per-node LSTM,
+historical-average, and ARIMA baselines, and to reporting the result honestly even if the graph
+does not win. The same discipline applies to the synthetic foot-traffic target: it is presented
+throughout as a partially-mitigated limitation, calibrated against manual counts and grounded in
+real seasonality and permit-cap figures, not as an equivalent substitute for measured footfall.
+
+Recommendations for the next phase are correspondingly narrow: confirm PP1/PP2/Final Evaluation
+dates with the supervisor so §10's per-module phase mapping can move from coarse windows to a real
+schedule; begin Module 4's field-calibration count collection early, since it is the one real-data
+input the whole evaluation depends on; and, once the M1–M3 literature-review subsections are
+brought up to the same depth as §4.5, revisit whether the shared Introduction/Background chapters
+still read as one coherent narrative rather than four unevenly-developed parts.
+
+The framework's contribution, if the MVPs described here are delivered as scoped, is not a claim of
+a fully deployed live system — `docs/TECHNICAL_AUDIT.md` is explicit that this project should not
+promise that — but four independently valid final-year research components plus a proof-of-concept
+demonstration of how they could share a dashboard. For Module 4, the contribution is narrower and
+more checkable still: an honestly-evaluated test of whether graph-structured forecasting earns its
+keep on a trail network far smaller than anything in the ST-GNN literature to date, and a
+Cifuentes-cascade-derived dynamic capacity output that operationalises the Limits of Acceptable
+Change principle (Stankey et al., 1985) in place of a static permit quota.
+
+## 11. Corrections carried over from the source-material audit
 - The **gem-verification / document-forgery** topics in the original tracking sheet are **not** part of this framework and were dropped.
 - **GEMTELLIGENCE** (if referenced anywhere) is spectroscopy-based (XRF/FTIR), **not** image-based — corrected.
 - Several tracking-sheet summaries were copy-pasted from the wrong paper and the entire **"Sajana" batch was fabricated**; none of those are cited here. Only verified sources appear above.

@@ -27,11 +27,11 @@ coherent enough for the shared narrative.
 
 | Section | Status | Notes |
 |---|---|---|
-| Title Page | **Missing** | Project ID J26-IT-363, title (v5 wording), team names/IDs, supervisor/co-supervisor, date |
-| Abstract (~150–200 words) | **Missing — write LAST** | Per `docs/LEC_NOTES_DIGEST.md`: covers Introduction, Problem, Background, Research Questions, Methodology, Key Findings (N/A at proposal stage — use "expected outcomes" instead), Conclusions |
-| Table of Contents | **Missing** | Auto-generated once structure is final — don't hand-number |
-| List of Figures / Tables | **Missing** | Populate once diagrams (architecture diagram, Module 4's trail-graph diagram, etc.) are placed |
-| List of Acronyms | **Missing** | IMU, RAG, ST-GNN, ECC, PCC, RCC, GCN, LSTM, DEM, TWI, OSM, DWC, SLTDA, etc. — pull from existing docs as written |
+| Title Page | **DONE (2026-08-29)** | Added to `docs/PROJECT_PROPOSAL.md`. Submission date left blank pending team timeline; flagged to re-confirm the member/module table against TAF v5 before final submission |
+| Abstract (~150–200 words) | **DONE (2026-08-29)** | Written last, once §0–§11 were locked, per `docs/LEC_NOTES_DIGEST.md`'s required order; covers motivation, problem, the four-module framework, Module 4's methodology, and expected outcomes (no "key findings" section — correctly using "expected outcomes" since this is proposal-, not results-, stage) |
+| Table of Contents | **Placeholder added** | Real TOC still needs auto-generation once structure is final — don't hand-number |
+| List of Figures / Tables | **Done, needs figures** | Existing tables listed; diagram entries (architecture diagram, Module 4's trail-graph diagram) still pending — none exist yet in `diagrams/` for this document |
+| List of Acronyms | **DONE (2026-08-29)** | Full alphabetical list added, cross-checked against every acronym actually used in the current document text |
 
 ---
 
@@ -97,11 +97,12 @@ work-package-style precedent found in this session's research.
   previously-logged-but-unused precedent papers (Gupta et al. 2025, Zhu et al. 2021) plus the new
   Zhang et al. 2025 and Gayathri et al. 2025 findings. M1–M3 lit-review subsections have not been
   touched — they remain in scope for whoever owns that pass, per "context, not your section."
-- **2.7 Synthesis / taxonomy** — **Missing.** `docs/LEC_NOTES_DIGEST.md` recommends a tabulated
-  comparison as a synthesis tool. **[M4 — your section, optional but strong]** A comparison table
-  of ST-GNN/GNN-forecasting precedents (architecture, graph size, data type real-vs-synthetic,
-  what gap remains) would visually reinforce the §5.5 argument and is a natural way to work in
-  the newly-added Gupta et al. 2025 and Zhu et al. 2021 sources.
+- **2.7 Synthesis / taxonomy** — **DONE (2026-08-29).** Added §4.5.1 to
+  `docs/PROJECT_PROPOSAL.md`: a 17-row comparison table of every ST-GNN/flow-forecasting precedent
+  from §4.5 (domain, graph size, real-vs-synthetic ground truth, whether it tests a non-graph
+  baseline) plus a final row placing Module 4 itself on the same axes. The table's punchline —
+  only 2 of 17 precedents actually test graph structure against a non-graph baseline, and neither
+  in a small offline wilderness setting — is stated explicitly as the gap Module 4 fills.
 
 ---
 
@@ -138,29 +139,31 @@ explicitly validated (not four separate chapters, not one fused description). Ma
 
 ## 4. Plan of Work
 
-- **4.1 Whole-project timeline** — **Missing.** No document currently has a consolidated,
-  cross-module timeline. Per the Horizon Europe work-package precedent found this session, the
-  convention is a single table/Gantt with per-module phases mapped to shared milestones (TAF ✓ →
-  Charter ✓ → Proposal → PP1/50% → PP2/90% → Final Evaluation → Thesis, per
-  `docs/GOVERNANCE_SUMMARY.md` §4). **[M4 — your section]** already has a 7-phase plan
-  (§5.5) that could anchor/inform the shared timeline's Module 4 row once real dates exist — the
-  phases don't yet have dates, deliberately (see `docs/SOURCES_LOG.md`, dates were left
-  unscheduled pending team/Charter input).
-- **4.2 Individual member contribution note** — **Missing**, but the ownership table already
-  exists in `CLAUDE.md` and the TAF's Objectives table (`taf/TAF-J26-IT-363-v5-ACCEPTED.pdf` §9) —
-  reuse, don't redraft.
+- **4.1 Whole-project timeline** — **DONE (2026-08-29), dates still TBD.** Added
+  `docs/PROJECT_PROPOSAL.md` §10: a shared-milestones table (TAF ✓, Charter ✓, Proposal in
+  progress, PP1/PP2/Final/Thesis all "not started — date TBD") plus a coarse three-window
+  per-module phase-mapping table (Proposal→PP1 / PP1→PP2 / PP2→Final) that reuses Module 4's
+  existing §5.5 7-phase plan rather than restating it. Dates are deliberately left blank — no
+  team/supervisor date exists for PP1 onward as of 2026-08-29 — with an explicit note to replace
+  the three coarse windows with a real Gantt-style view (per the Horizon Europe precedent) once
+  dates are confirmed, not before.
+- **4.2 Individual member contribution note** — **DONE (2026-08-29).** §10 explicitly points back
+  to the Title Page's ownership table and `CLAUDE.md` rather than redrafting it, and states the
+  no-cross-blocking claim (each member's deliverable is independent of the others').
 
 ---
 
 ## 5. Conclusion (proposal-level, not final-thesis-level)
 
-- **Missing.** Per `docs/LEC_NOTES_DIGEST.md`'s 4-step process (answer the RQ directly at a
-  proposed-approach level, reflect on the planned process, state expected contribution, do NOT
-  introduce new data/arguments) — this is a short synthesis pass once §1–§4 are locked, not new
-  research. Existing §10 "Corrections carried over from the source-material audit" is useful
-  supporting material but is not itself a conclusion — it's closer to an erratum and could move to
-  an appendix or stay as an internal note (it's about the *document's* history, not the project's
-  contribution).
+- **DONE (2026-08-29).** Added `docs/PROJECT_PROPOSAL.md` §"Conclusion", placed after the new §10
+  Plan of Work and before the renumbered §11 "Corrections" section (which stays as an internal
+  erratum, not moved — it's about the document's history, not the project's contribution, exactly
+  as flagged here previously). Follows `docs/LEC_NOTES_DIGEST.md`'s 4-step process: answers the
+  main RQ at a proposed-approach level, reflects on the research process (the deliberate
+  baseline-testing and synthetic-target-honesty discipline running through §4.5/§5.5), states
+  narrow recommendations (confirm PP1/PP2 dates, start field calibration early, revisit M1–M3
+  lit-review depth), and states the expected contribution without introducing any new data or
+  citation not already established earlier in the document.
 
 ---
 
@@ -182,15 +185,16 @@ Most of this proposal is **already written and verified** — the skeleton above
 list, not a from-scratch outline. The real new-writing items, in rough priority order for a
 Module-4-first pass:
 
-1. ~~Front matter~~ / ~~§4.5 literature review expansion~~ / ~~§5.5 precedent weave-in~~ — **§4.5
-   and §5.5 done 2026-08-29** (see `docs/SOURCES_LOG.md`); front matter (title page, TOC, acronym
-   list) still open — mechanical, low-risk, do anytime.
-2. Optional comparison table (§2.7) for Module 4's literature — now has enough sourced material
-   (16+ Module 4 papers) to be worth building.
-3. M1–M3 literature-review subsections (§4.2–§4.4) are now comparatively the thinnest in the
-   document — out of Module-4 scope, but worth flagging to whoever owns that pass.
-4. Whole-project Plan of Work table (needs team input on dates — hold until available)
-5. Abstract + Conclusion (write last, once everything else is locked)
+1. ~~§4.5 literature review expansion~~ / ~~§5.5 precedent weave-in~~ / ~~§2.7 comparison table~~ /
+   ~~front matter~~ / ~~whole-project Plan of Work skeleton~~ — **all done 2026-08-29** (see
+   `docs/SOURCES_LOG.md`). Explicitly deprioritized per team decision: M1–M3 literature-review
+   subsections (§4.2–§4.4, now comparatively the thinnest in the document) — out of Module-4 scope,
+   not being picked up in this pass.
+2. ~~Abstract~~ / ~~Conclusion~~ — **done 2026-08-29**, written last once §0–§11 were locked, per
+   `docs/SOURCES_LOG.md`. Remaining open item: fill in real PP1/PP2/Final/Thesis dates in §10 once
+   the team/supervisor sets them, and upgrade the coarse 3-window per-module table to a real
+   Gantt-style view at that point. This is the only substantive gap left that isn't out-of-scope
+   for Module 4 (M1–M3 lit-review depth remains open but is explicitly not being picked up here).
 
 Nothing here requires new research beyond what's already sourced and logged — this is a writing
 and assembly pass, not another literature search.

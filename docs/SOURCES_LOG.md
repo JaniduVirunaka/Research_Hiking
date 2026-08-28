@@ -408,3 +408,80 @@ finding.
   confirmation of findings #4, #5, #6 (Uremović, Acciai, Gayathri) and #9 (Zhang et al.) on their
   publisher pages if institutional/VPN access to ScienceDirect/ACM DL is available, since the fetch
   tool was blocked (HTTP 403) on all four and CrossRef API was used as the authoritative fallback.
+
+### 2026-08-29 — §4.5.1 synthesis table added (no new sources; pure synthesis of already-verified findings)
+- **Type:** decision
+- **Claim:** Added `docs/PROJECT_PROPOSAL.md` §4.5.1, a 17-row comparison table placing every
+  ST-GNN/flow-forecasting precedent from §4.5 (domain, graph size, real-vs-synthetic ground truth,
+  whether the paper tests a non-graph baseline) plus a final row placing Module 4 itself on the
+  same axes, per `docs/PROPOSAL_SKELETON.md` §2.7's synthesis/taxonomy recommendation.
+- **Source:** no new external sources — every row reuses a citation already verified and logged in
+  the 2026-08-29 entry above or in the pre-existing Module 4 table in
+  `docs/REFERENCES_BY_COMPONENT.md`. This is a synthesis/organizational pass over already-verified
+  material, not a new factual claim.
+- **Justification:** Rule #3 is already satisfied by the underlying per-source verifications; this
+  entry exists for traceability of the *editorial* decision (which axes to compare on, and the
+  "only 2 of 17 test a non-graph baseline" observation drawn from the table) rather than to
+  introduce a new claim requiring independent verification.
+- **Status:** active.
+
+### 2026-08-29 — Front matter added (title page, TOC placeholder, list of figures/tables, acronym list)
+- **Type:** decision
+- **Claim:** Added a Front Matter block to `docs/PROJECT_PROPOSAL.md`: a title page (project ID,
+  title, programme, supervisor/co-supervisor, the four-member ownership table), a placeholder note
+  for the Table of Contents (deferred to auto-generation once structure is locked, per the
+  skeleton's own instruction not to hand-number), a List of Figures/Tables enumerating the tables
+  already in the document, and a full alphabetical List of Acronyms cross-checked against every
+  acronym actually appearing in the current document text (not a generic list).
+- **Source:** team/supervisor names and reg. numbers reused from `CLAUDE.md`'s ownership table
+  (itself sourced from the panel-accepted TAF v5, per the existing 2026-08-28 log entry); no new
+  external claims were introduced.
+- **Justification:** Purely organizational/mechanical content synthesized from already-verified
+  project facts — no new factual/citation claim requiring independent verification under rule #3.
+- **Status:** active. Submission date left explicitly blank (no team-confirmed deadline exists yet
+  in any project doc) rather than guessed. Flagged in the title page itself: re-confirm the
+  member/module table hasn't changed before final submission.
+
+### 2026-08-29 — Whole-project Plan of Work added; dates deliberately left blank
+- **Type:** decision
+- **Claim:** Added `docs/PROJECT_PROPOSAL.md` §10 "Plan of Work (whole-project)": a shared-
+  milestones table (TAF and Charter marked Done with their real dates; Proposal marked In Progress;
+  PP1, PP2, Final Evaluation, and Thesis Submission all marked "Not started — date TBD") and a
+  coarse three-window per-module phase-mapping table (Proposal→PP1 / PP1→PP2 / PP2→Final) that
+  reuses Module 4's existing §5.5 7-phase breakdown rather than restating it, plus a short
+  individual-member-contribution note pointing back to the Title Page's ownership table rather than
+  redrafting it. Renumbered the former §10 ("Corrections carried over from the source-material
+  audit") to §11 to make room.
+- **Source:** milestone names and statuses reused directly from `docs/GOVERNANCE_SUMMARY.md` §4,
+  which was itself checked in this same pass and confirmed to list milestone *names* only, with "—"
+  in every date column except the Charter (already submitted, 2026-08-01) and implicitly the TAF
+  (already accepted, 2026-07-07, per the existing 2026-08-28 log entry). No new external claims.
+- **Justification:** Rule #3 is satisfied by the reused, already-verified facts; no new citation
+  was needed since this is a scheduling/organizational document, not a factual claim. The decision
+  to leave PP1 onward undated rather than estimate a schedule is itself the notable choice here —
+  worth logging so a future session doesn't mistake the blank dates for an oversight.
+- **Status:** active. Explicit follow-up: once the team/supervisor confirms PP1/PP2/Final/Thesis
+  dates, replace the three coarse windows in the per-module table with real date ranges and
+  consider upgrading to a Gantt-style view (per the Horizon Europe work-package precedent already
+  used to validate this document's overall structure, see the 2026-08-28 skeleton-research entry
+  above) — do not backfill dates without that confirmation.
+
+### 2026-08-29 — Abstract and Conclusion added; proposal skeleton's Module-4 gap list now closed except M1–M3 lit review and real dates
+- **Type:** decision
+- **Claim:** Added an Abstract (~200 words, placed before §0, covering motivation/problem/
+  four-module framework/Module-4 methodology/expected outcomes, no fabricated "key findings" since
+  this is proposal- not results-stage) and a Conclusion (placed after §10 Plan of Work, before the
+  renumbered §11 Corrections/erratum section) to `docs/PROJECT_PROPOSAL.md`, following the 4-step
+  process in `docs/LEC_NOTES_DIGEST.md` (answer the RQ at a proposed-approach level; reflect on the
+  research process; give narrow recommendations; state contribution) and introducing no new data,
+  citation, or argument beyond what §0–§11 already establish.
+- **Source:** synthesized entirely from already-verified/already-logged material in this document
+  and this log — no new external claims. The Conclusion explicitly cites the Stankey et al. 1985
+  LAC framing and the §4.5.1/§5.5 baseline-testing discipline, both already verified and logged
+  earlier in this same 2026-08-29 session.
+- **Justification:** Purely a synthesis/writing pass over already-verified material — no new
+  factual or citation claim requiring independent verification under rule #3.
+- **Status:** active. This closes every Module-4-scoped item on `docs/PROPOSAL_SKELETON.md`'s
+  priority list from the 2026-08-28 skeleton pass except two items explicitly left open by design:
+  (a) real PP1/PP2/Final/Thesis dates, blocked on team/supervisor input; (b) M1–M3 literature-review
+  depth, out of Module-4 scope per the user's explicit instruction this session to skip it.
