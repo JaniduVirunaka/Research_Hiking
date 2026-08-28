@@ -22,9 +22,9 @@ verify it rather than trust this summary blindly (per Rule 3 below, applied to i
   professional, legal, ethical framework; (3) plan independent research using appropriate
   software tools; (4) critically appraise research evaluation methodologies.
 - **Workload:** 36 contact hours + 114 non-contact hours = 150 total (part-time).
-- This is distinct from the **Faculty-level IT specialization checklist** (TAF, Charter, PP1,
-  PP2, Final Evaluation, Thesis, Logbook) in §7 below — the module grades the proposal-writing
-  skill itself; the faculty checklist grades the actual FYP deliverables.
+- This is distinct from the **Faculty-level IT specialization checklist** (TAF, PP1, PP2, Final
+  Evaluation, Thesis, Logbook) in §7 below — the module grades the proposal-writing skill itself;
+  the faculty checklist grades the actual FYP deliverables.
 
 ## 2. Research fundamentals — definitions that get tested and that anchor scope decisions
 
@@ -106,8 +106,8 @@ Four features, all required simultaneously:
 3. **Precision** — specific numbers/dates; no vague quantifiers ("a lot," "very"); no
    imprecise/phrasal verbs (do, get, find out) — use precise single verbs instead.
 4. **Hedging** — qualify claims with quantifiers/modal verbs (some, may, could) — avoid both
-   overconfidence and over-caution. This directly operationalizes `CLAUDE.md`'s AI-policy
-   requirement to never paper over a real limitation with false confidence (§8 below).
+   overconfidence and over-caution. This directly operationalizes the project's standing rule to
+   never paper over a real limitation with false confidence.
 
 Same rigor is expected in every audience-facing document — examiner-facing and peer-facing writing
 differ in tone, not in rigor.
@@ -158,22 +158,7 @@ stated expected outputs.
   Rule 2 (never commit, only stage) exists: the human team must be the one producing that commit
   history, not Claude on their behalf.
 
-## 8. The "Use of AI Policy" — binding constraint on how this repo's output gets used
-
-Every team member signed a declaration (2026-08-01) that AI tools are support only, must be used
-transparently and disclosed, and that **the student bears full responsibility and must be able to
-explain, justify, and defend all AI-assisted output in a viva.** Practical consequences already
-enforced by `CLAUDE.md`, restated here because it's the rule most likely to be silently violated
-by producing an overly polished deliverable:
-
-- Never generate a "finished" answer that outruns the owning member's actual understanding — leave
-  reasoning legible enough that Weerasekara J.V. (Module 4's owner) can walk through and defend it.
-- Disclose AI involvement wherever a submission process asks about it.
-- Do not smooth over a real gap or limitation (e.g. anything flagged in `docs/TECHNICAL_AUDIT.md`)
-  with false confidence — state it plainly. A defensible "we haven't resolved X yet" beats an
-  indefensible polished claim.
-
-## 9. Referencing mechanics
+## 8. Referencing mechanics
 
 - **Harvard style** is taught in the greatest depth (author-year in-text, alphabetical reference
   list) — but **IEEE** is also explicitly named as acceptable ("IEEE/Harvard Ref Style," Tutorial
@@ -184,7 +169,7 @@ by producing an overly polished deliverable:
 - No mandated Turnitin similarity-percentage threshold appears anywhere in the module content —
   that number, if it exists for this cohort, lives only in the SLIIT-specific guideline PDFs.
 
-## 10. Evaluation/validation — how Module 4's ST-GNN work must be validated when it gets there
+## 9. Evaluation/validation — how Module 4's ST-GNN work must be validated when it gets there
 
 - Evaluation criteria must be **chosen up front** (accuracy, efficiency, coverage, etc.) and any
   comparison baseline must **already have been discussed in the literature review** — introducing
@@ -198,13 +183,13 @@ by producing an overly polished deliverable:
 - Results-writing rule: be concise, include only what answers the actual research questions
   (move extras to appendix), move broad → granular.
 
-## 11. Quick decision guide
+## 10. Quick decision guide
 
 | If you're about to... | Apply |
 |---|---|
 | Add a new integration between Module 4 and Module 1/2/3 | Keep it explicitly optional/future-work per `CLAUDE.md`; check it doesn't violate the "loosely coupled peers" architecture that passed topic approval (§7) |
 | Cite a new paper/dataset | Run the predatory-source checklist (§4) + log in `docs/SOURCES_LOG.md` with justification (`CLAUDE.md` Rule 3) |
-| Write a claim about a gap, limitation, or result | Use the 5-gap taxonomy (§3) if it's a gap claim; hedge per §5; never smooth over via §8 |
-| Plan a validation/evaluation experiment for Module 4 | §10 — baseline must already be in the lit review, choose metrics up front |
+| Write a claim about a gap, limitation, or result | Use the 5-gap taxonomy (§3) if it's a gap claim; hedge per §5; never smooth over a real limitation with false confidence |
+| Plan a validation/evaluation experiment for Module 4 | §9 — baseline must already be in the lit review, choose metrics up front |
 | Touch anything involving real hiker/park-operator data | §6 — check whether Ethics Review clearance is needed before collecting it |
 | Draft or revise the proposal/thesis structure | §7 for the mandatory checklist items; `docs/LEC_NOTES_DIGEST.md` §7 for the generic chapter template, cross-checked against the SLIIT guideline PDFs for the exact mandated version |

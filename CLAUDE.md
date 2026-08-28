@@ -55,15 +55,19 @@ module's scope.
 
 ## Folder map
 
-- `docs/` — living project documentation (proposal, references, audits, presentation script, TAF
-  prose, lecture-notes digest, governance summary, source ledger). Read these first.
+- `docs/` — living project documentation (proposal, references, audits, source ledger). Read these
+  first. `docs/reference/` holds supporting reference material moved out of the top level
+  (presentation script, principles & rules, TAF prose, lecture-notes digest, governance summary) —
+  `docs/GOVERNANCE_SUMMARY.md` is now at `docs/reference/GOVERNANCE_SUMMARY.md`, same for the
+  others; update any stale flat-path reference you find.
 - `taf/` — official Topic Assessment Form. `TAF-J26-IT-363-v5-ACCEPTED.*` is the panel-signed
   version. `TAF-J26-IT-363-v6-DRAFT.*` is the unreviewed pivot draft (see warning above).
   `taf/archive/` holds superseded v1–v4 drafts, kept for history only — do not cite or build from
   them.
 - `governance/` — the two official SLIIT Faculty of Computing PDFs this project must comply with
-  (TAF supervisor guidelines, undergraduate RP guidelines). `docs/GOVERNANCE_SUMMARY.md` is the
-  condensed, agent-usable version — read that first and only open the PDFs for verbatim wording.
+  (TAF supervisor guidelines, undergraduate RP guidelines). `docs/reference/GOVERNANCE_SUMMARY.md`
+  is the condensed, agent-usable version — read that first and only open the PDFs for verbatim
+  wording.
 - `research/` — the literature-tracking spreadsheet (`Research Topics.xlsx`), the raw Gemini
   Deep Research chat exports that originated the project idea, and the reference GPX trail file.
 - `diagrams/` — conceptual/architecture diagrams (HTML, drawio XML, PNG renders).
@@ -93,20 +97,11 @@ module's scope.
    Tobler's hiking function 1993, Minetti et al. 2002, Lewis et al. 2020 RAG, Reimers & Gurevych
    2019 Sentence-BERT). Foundational citations must be explicitly labelled as such wherever used,
    not presented as recent literature.
-5. **Honor the signed "Use of AI Policy" (Charter, submitted 2026-08-01).** All four members
-   individually signed a declaration that AI tools are support tools only (not substitutes for
-   their own understanding), that AI use will be disclosed, that the student bears full
-   responsibility for AI-assisted output, and that the student must be able to explain, justify,
-   and defend all of it during evaluations. See `docs/GOVERNANCE_SUMMARY.md` §6 for the full text
-   and what it means in practice — in short: leave reasoning explainable (not just a polished
-   answer), never conceal AI involvement where a submission asks about it, and never paper over a
-   real gap or limitation with false confidence, since the student — not Claude — has to defend
-   it in a viva.
-
-6. **No emojis in any generated deliverable.** Documents, HTML compilations, presentation slides,
-   status docs, and any other submission artifact must use minimal, plain styling — no emoji
-   glyphs anywhere in the content. This applies regardless of formatting instructions given for a
-   specific task; treat it as a standing default for this project's outputs.
+5. **No emojis anywhere — in any generated deliverable or in chat responses.** Documents, HTML
+   compilations, presentation slides, status docs, any other submission artifact, and ordinary
+   conversational replies in this project must all use minimal, plain styling — no emoji glyphs
+   anywhere in the content or the response text. This applies regardless of formatting
+   instructions given for a specific task; treat it as a standing default for this project.
 
 ## Working conventions
 

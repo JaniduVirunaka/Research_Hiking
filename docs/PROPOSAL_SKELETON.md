@@ -1,7 +1,7 @@
 # Proposal Skeleton — J26-IT-363
 
 Section-by-section outline for the full Research Proposal deliverable (the checkpoint after the
-already-accepted TAF v5 and the already-submitted Charter). This is a **skeleton**, not content —
+already-accepted TAF v5). This is a **skeleton**, not content —
 it maps what each section must contain, where the content already exists, what's missing, and
 what pattern each section follows, so the actual writing pass has a clear target.
 
@@ -143,7 +143,7 @@ explicitly validated (not four separate chapters, not one fused description). Ma
 ## 4. Plan of Work
 
 - **4.1 Whole-project timeline** — **DONE (2026-08-29), dates still TBD.** Added
-  `docs/PROJECT_PROPOSAL.md` §10: a shared-milestones table (TAF ✓, Charter ✓, Proposal in
+  `docs/PROJECT_PROPOSAL.md` §10: a shared-milestones table (TAF ✓, Proposal in
   progress, PP1/PP2/Final/Thesis all "not started — date TBD") plus a coarse three-window
   per-module phase-mapping table (Proposal→PP1 / PP1→PP2 / PP2→Final) that reuses Module 4's
   existing §5.5 7-phase plan rather than restating it. Dates are deliberately left blank — no

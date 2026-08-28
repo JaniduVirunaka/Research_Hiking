@@ -62,14 +62,6 @@ module) and `docs/SOURCES_LOG.md` (what's already verified vs. what's new).
    glosses over or overstates confidence on these points rather than stating them as open
    limitations, flag it — the project's credibility with the panel depends on honest scoping, not
    overclaiming.
-6. **Use of AI Policy compliance (`docs/GOVERNANCE_SUMMARY.md` §6).** All four members signed a
-   binding declaration on 2026-08-01 that AI is a support tool only, that AI use is disclosed,
-   and that the responsible student must be able to explain/justify/defend the work. Check
-   whether the work under review would leave the owning student able to actually defend it — is
-   the reasoning shown, not just a polished conclusion? Does it paper over a real gap with false
-   confidence instead of stating it plainly? Flag output that reads as "finished and confident"
-   but rests on unexplained or unjustified steps — that's a policy risk for the student, not just
-   a documentation nicety.
 
 ## How to report
 

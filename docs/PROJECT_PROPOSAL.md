@@ -417,8 +417,8 @@ against the calibrated series and the manual counts. The Cifuentes PCC→RCC→E
 applied deterministically on top of the forecast to produce the dynamic capacity number — this
 conversion step is a formula application, not a model output, and is presented as such.
 
-**Plan of work (indicative, module-level; align with the team's shared TAF/Proposal timeline
-once the Charter sets exact dates).**
+**Plan of work (indicative, module-level; align with the team's shared TAF/Proposal timeline —
+exact dates TBD).**
 
 | Phase | Work | Key output |
 |---|---|---|
@@ -483,13 +483,12 @@ The four modules are **peers**, each a complete sub-project with its own data, m
 ## 10. Plan of Work (whole-project)
 
 **Shared milestones** (per `docs/GOVERNANCE_SUMMARY.md` §4 — the IT4010 checkpoint sequence for
-this cohort). Two are already complete; the rest have no team-confirmed dates yet, so none are
+this cohort). One is already complete; the rest have no team-confirmed dates yet, so none are
 guessed here:
 
 | Milestone | Deliverable | Status |
 |---|---|---|
 | TAF | Topic Assessment Form | **Done** — v5 panel-accepted, 2026-07-07 |
-| Project Charter | Charter + signed Use of AI Policy | **Done** — submitted 2026-08-01 |
 | Proposal | This document + Ethics Form | In progress (this pass: front matter, §4.5 lit-review deepening, §4.5.1 synthesis table) |
 | PP1 (50%) | Status Doc 1 — Git repository (README, architecture diagram, full commit history) | Not started — date TBD |
 | PP2 (90%) | Status Doc 2 — evidence of PM-tool use (MS Planner export) | Not started — date TBD |

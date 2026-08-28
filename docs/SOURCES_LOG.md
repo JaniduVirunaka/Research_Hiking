@@ -603,3 +603,177 @@ finding.
   the above; the uncertainty-quantification strand is explicitly stated in the proposal text as
   future-work-adjacent (not part of Module 4's current MVP scope) to avoid overstating what's
   already planned.
+
+### 2026-08-29 — CLAUDE.md folder map corrected (docs/reference/ subfolder move predates this session)
+- **Type:** finding
+- **Claim:** Five reference docs (`GOVERNANCE_SUMMARY.md`, `LEC_NOTES_DIGEST.md`,
+  `PRESENTATION_SCRIPT.md`, `PRINCIPLES_AND_RULES.md`, `TAF_CONTENT.md`) live at
+  `docs/reference/`, not flat under `docs/` as `CLAUDE.md`'s folder map described. This move was
+  already committed in git history (commit `c43b85a`, predating this session) — not a change made
+  in this conversation, just a stale-documentation catch.
+- **Source:** direct `ls`/`git log --oneline -- docs/reference/` check, 2026-08-29.
+- **Justification:** `CLAUDE.md`'s folder map is itself project documentation that other agents
+  rely on for navigation; a stale path reference would cause a future agent to read a non-existent
+  flat file or miss the reference docs entirely.
+- **Status:** active. `CLAUDE.md`'s folder-map bullet for `docs/` updated to point at
+  `docs/reference/` for the five moved files.
+
+### 2026-08-29 — Module 4 compute and data-storage plan decided (free-tier, git-hosted)
+- **Type:** decision
+- **Claim:** Started `docs/MODULE4_DATA_AND_RESOURCES.md`, a new implementation-facing planning
+  doc for Module 4's dataset acquisition and compute/tooling. Two concrete decisions made this
+  session: (1) **compute** — free-tier only (this local development machine for CPU-bound work;
+  Google Colab free tier or Kaggle Notebooks free GPU quota only if hyperparameter-tuning speed
+  becomes an actual bottleneck), no paid tier assumed, justified by the graph's small scale
+  (~25–40 nodes, ~9,000 timesteps) not requiring serious compute; (2) **data storage** — all
+  Module 4 data artifacts (extracted graph, DEM features, weather series, synthetic occupancy
+  target) stored directly in the git repository rather than an external service, since none of it
+  is large raw imagery the way Module 2's vision data is.
+- **Source:** local machine specs verified via direct PowerShell query, 2026-08-29 — AMD Ryzen 5
+  5600G (6C/12T), ~19.9 GB RAM, AMD Radeon RX 7600 XT confirmed at **16 GB VRAM** via the registry
+  `HardwareInformation.qwMemorySize` key (the WMI `Win32_VideoController.AdapterRAM` field
+  under-reports as ~4 GB due to a known 32-bit-field overflow for cards with >4 GB VRAM — flagging
+  this explicitly since it could otherwise look like a wrong/guessed number). Compute/storage
+  decisions themselves made directly by the user in this session (free-tier + this machine; git
+  repo for storage), not independently sourced claims requiring external verification.
+- **Justification:** The VRAM figure is a hardware fact needing direct verification (rule #3
+  applies to technical claims generally, not just literature) — resolved via registry query rather
+  than trusting the initially-returned WMI value, which would have been wrong. The compute/storage
+  decisions are user/project decisions, not factual claims, and are logged for traceability of
+  *why* (small graph scale; small data footprint), consistent with this log's practice of
+  recording the reasoning behind scope/resourcing choices.
+- **Status:** active. Important caveat stated in the doc itself and repeated here: the GPU being
+  **AMD, not NVIDIA**, is the real constraint (PyTorch's default CUDA path does not run on it), not
+  VRAM size — the doc recommends CPU-only training as the default for this workload's scale rather
+  than investing setup time in ROCm-on-Windows, with free-tier cloud GPU (Colab/Kaggle) as the
+  fallback if ever needed. The ROCm-Windows-support claim itself is stated from general knowledge
+  and explicitly flagged in the doc as not independently re-verified this session — re-check before
+  it becomes load-bearing for a real setup decision. §3 of the new doc (per-dataset access
+  mechanics) is intentionally left as TODO pending a separate verification pass in progress.
+
+### 2026-08-29 — Project Charter and Use of AI Policy disregarded and removed from active docs
+- **Type:** decision
+- **Claim:** The team has decided to disregard and remove the Project Charter and its "Use of AI
+  Policy: Student Declaration and Agreement" from the project's active documentation and rules,
+  per explicit user instruction in this session. This supersedes the earlier treatment of the
+  Charter and its AI-usage policy as a binding, load-bearing constraint recorded in the
+  2026-08-28 "Project Charter already submitted; binding AI-usage policy discovered" entry above
+  and in the entries at 2026-08-28 ("Added Module 4 extended methodology & plan of work") and
+  2026-08-29 ("Whole-project Plan of Work added") that referenced it. As a result, the following
+  were removed in this session: `CLAUDE.md` rule #5 (the "Honor the signed Use of AI Policy"
+  rule), with the former rule #6 ("No emojis in any generated deliverable") renumbered to #5,
+  `docs/reference/GOVERNANCE_SUMMARY.md` §6
+  ("Use of AI Policy — binding on every session in this repo," with §7 renumbered to §6) and the
+  Charter row in its §4 milestones table, `docs/reference/PRINCIPLES_AND_RULES.md` §8 ("The 'Use
+  of AI Policy'," with §9/§10/§11 renumbered to §8/§9/§10) and the "Charter, " item in its §1
+  checklist mention, the "Use of AI Policy compliance" check item (#6) in
+  `.claude/agents/supervisor-agent.md`, and Charter references/rows in
+  `docs/PROJECT_PROPOSAL.md`, `docs/PROJECT_PROPOSAL.html`, and `docs/PROPOSAL_SKELETON.md`.
+  `governance/Project Charter.pdf` itself was left in place (not a documentation trace, and not
+  covered by this instruction) and the four historical `docs/SOURCES_LOG.md` entries describing
+  the Charter's prior discovery and use are left unmodified as the historical record, per this
+  log's append-only, mark-superseded-not-deleted convention.
+- **Source:** direct instruction from the user in this session, 2026-08-29 ("ignore charter,
+  remove it from project and traces of it in docs").
+- **Justification:** Rule #3 requires every decision to be logged with a source and
+  justification; the source here is the user's own explicit, session-local instruction, which is
+  sufficient authority for a documentation/scope decision of this kind (as opposed to a factual
+  or citation claim, which would need external verification). Logging this explicitly prevents a
+  future session from either reintroducing Charter-derived rules by trusting a stale doc, or
+  mistaking the historical entries above for a still-binding constraint.
+- **Status:** active. Supersedes, for documentation and rule-enforcement purposes only, the
+  2026-08-28 "Project Charter already submitted; binding AI-usage policy discovered" entry's
+  `Status` note that `CLAUDE.md` rule #5 and `docs/reference/GOVERNANCE_SUMMARY.md` §6 reflect the
+  Charter's terms — they no longer do, as of this entry. The 2026-08-28 and earlier 2026-08-29
+  entries themselves remain unmodified as historical record.
+
+### 2026-08-29 — Module 4 data-source access mechanics verified (OSM, DEM, weather, benchmarks, transfer data)
+- **Type:** finding + decision
+- **Claim:** Verified the practical access mechanics (endpoints, auth, formats, rate limits) for
+  every external data source Module 4's proposal already commits to using — this is the "how do
+  you actually get the bytes" layer beneath the dataset *choices* already verified in
+  `docs/PROJECT_PROPOSAL.md` §5/§7. Findings integrated into the new
+  `docs/MODULE4_DATA_AND_RESOURCES.md` §3. Several genuinely new findings not previously stated
+  anywhere in the project, summarized here (full detail and per-claim verification-strength
+  markers are in the doc itself, not duplicated here per this log's own no-duplication convention):
+  - **OpenTopography's DEM API requires a free API key** — confirmed via a live request that
+    returned HTTP 401 with a fake key (proving the endpoint/params are correct and a key is
+    genuinely enforced). Not previously flagged in the proposal. Mitigation found: the Copernicus
+    GLO-30 AWS Open Data bucket (`s3://copernicus-dem-30m/`) allows fully anonymous access, no key
+    needed at all — recommended as the default DEM source for that reason.
+  - **NASA POWER's weather grid badly under-resolves Horton Plains' elevation** (reported ~681m vs.
+    Open-Meteo/ERA5's ~2,108m at the same coordinates, both queried live) because POWER runs on the
+    coarser ~50km MERRA-2 grid — recommend treating POWER as secondary/cross-check only, not
+    primary, given the project's dependence on real terrain-driven weather effects.
+  - **The IEEE DataPort mirror for PeMS04/PeMS08 is confirmed dead** (directly fetched; states
+    "Files have not been uploaded for this dataset"). The maintained working source is
+    `github.com/Davidham3/ASTGCN` (confirmed real `.npz`/`.csv` files present, 428 stars). The
+    original METR-LA/PEMS-BAY source (`liyaguang/DCRNN`) only points to Google Drive/Baidu Yun
+    links that were not independently opened — recommend using PyTorch Geometric Temporal's
+    built-in dataset loader classes instead, confirmed present in its current docs.
+  - **NPS Visitor-Use Statistics** is more reliably accessed via a static CC0 CSV package on
+    data.gov (`Main_Data.csv`, 1979–2025) than the interactive IRMA STATS portal, which is a
+    JavaScript application the fetch tooling used could not render (flagged as a tooling
+    limitation, not a claim the portal is broken).
+  - Live, working, no-auth access was directly confirmed for: the Overpass API (a real Horton
+    Plains query returned a way literally named "World's End Loop"), the Geofabrik Sri Lanka
+    extract's landing page (137MB, current to 2026-08-27 — the binary `.pbf` itself hit an HTTP 502
+    through the fetch tool, most likely a tool-side binary-handling limitation, not confirmed
+    broken), Open-Meteo's archive API, CHIRPS's directory listing, and the Austin Eco-Counter
+    Socrata API (a real sensor record returned).
+  - **SRTM accuracy in mountainous terrain**: general (non-Sri-Lanka) literature shows SRTM
+    vertical RMSE degrading substantially in steep/undulating terrain (Himalaya studies: ~3.55m
+    plains vs. ~19.64m highly undulating) — no Horton-Plains-specific accuracy figure was found
+    despite a dedicated search, so this is stated as a reasoned extrapolation favouring Copernicus
+    GLO-30 (newer TanDEM-X-based) over SRTM GL1, not a site-specific measured fact.
+- **Source:** each finding above carries its own verification-strength marker in
+  `docs/MODULE4_DATA_AND_RESOURCES.md` §3 — [LIVE] (a real request against the real endpoint
+  returned real data), [PRIMARY-DOC] (the vendor's own documentation/landing page fetched
+  directly), or [SEARCH-XCHECK] (corroborated only via search snippets, explicitly weaker and
+  flagged for follow-up). Items that could not be verified live are listed explicitly in the doc
+  rather than presented as confirmed (e.g. the Overpass mirror list, the Google Drive/Baidu Yun
+  links, the Hugging Face `Salesforce/lotsa_data` PeMS mirror, the Copernicus S3 tile-naming
+  regex).
+- **Justification:** Satisfies rule #3 — every access claim is either independently verified with
+  a stated method or explicitly flagged as unverified, rather than assumed from memory or a single
+  plausible-looking search result.
+- **Status:** active. `docs/MODULE4_DATA_AND_RESOURCES.md` §3 (per-dataset access mechanics) and §4
+  (open questions) updated to reflect all of the above. Follow-ups explicitly left open in that
+  doc: get a real OpenTopography API key before implementation starts (or rely on the no-key S3
+  mirror for GLO-30); confirm the Geofabrik `.pbf` binary downloads with a real tool, not just the
+  landing page; decide whether to chase the METR-LA/PEMS-BAY Drive/Baidu links or rely on the
+  PyTorch Geometric Temporal loader (recommended).
+
+### 2026-08-29 — Charter fully removed by explicit user instruction; corrected an earlier ROCm hedge
+- **Type:** decision + finding
+- **Claim (Charter):** The user explicitly instructed, mid-session, "i removed the charter, we
+  need not worry about it" — confirming and extending the earlier Charter-removal decision already
+  logged above (the "ignore charter, remove it from project and traces of it" entry). No further
+  action needed beyond what that entry already recorded; logging this message itself for
+  continuity since it arrived as a live, direct instruction in this conversation rather than a
+  prior-session artifact being discovered.
+- **Claim (ROCm/Windows 11) — corrects an earlier hedge in this same log/doc:** the
+  `docs/MODULE4_DATA_AND_RESOURCES.md` compute section originally stated the ROCm-on-Windows
+  support claim was "from general knowledge, not independently re-verified" and recommended
+  avoiding it. The user pointed out that upgrading this machine to Windows 11 might remove the GPU
+  limitation. **Directly verified via WebFetch against AMD's own official ROCm HIP SDK Windows
+  system-requirements page**
+  (`https://rocm.docs.amd.com/projects/install-on-windows/en/latest/reference/system-requirements.html`):
+  the **AMD Radeon RX 7600 XT (gfx1102) is explicitly listed as officially supported** (Runtime +
+  HIP SDK) on Windows, with the documented minimum OS being **Windows 11, version 22H2**. ROCm is
+  not in AMD's supported matrix for Windows 10 at all. This confirms the user's instinct was
+  correct and corrects the doc's earlier, more hedged recommendation.
+- **Source:** direct WebFetch of the cited AMD documentation URL, 2026-08-29 — a primary-source
+  vendor page, not a search-snippet summary. Cross-referenced against a WebSearch pass that also
+  surfaced TechPowerUp/VideoCardz coverage of AMD's Windows PyTorch/ROCm rollout for RX 7000-series
+  cards, consistent with the primary-source finding.
+- **Justification:** Rule #3 requires re-verification rather than trusting a hedged, from-memory
+  claim once it became load-bearing for an actual hardware/OS decision — exactly the scenario the
+  original hedge flagged as needing a re-check "before relying on it for a real setup decision."
+- **Status:** active. `docs/MODULE4_DATA_AND_RESOURCES.md` §1.1 updated: the OS row now notes the
+  Windows 11 upgrade path, and the GPU options list now recommends native ROCm on Windows 11 22H2+
+  as the preferred GPU path (over free-tier cloud GPU) if GPU acceleration is ever actually needed,
+  while keeping CPU-only as the default regardless of OS given the graph's small scale. Also added
+  §3.7, a consolidated link table covering every data source and tool referenced in §§1–3 as
+  clickable markdown links, each marked verified/unverified, per the user's explicit request that
+  data-source links be included.
